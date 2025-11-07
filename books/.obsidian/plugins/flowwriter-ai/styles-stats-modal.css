@@ -1,0 +1,1504 @@
+/* =============================
+   AI Statistics Modal Styles
+   ============================= */
+
+/* Независимое масштабирование по ширине и высоте */
+:root {
+    --stats-modal-scale-width: 1;
+    --stats-modal-scale-height: 1;
+}
+
+/* =============================
+   Основные стили модального окна
+   ============================= */
+.ai-stats-modal {
+    padding: 0;
+    max-width: calc(1250px * var(--stats-modal-scale-width));
+    margin: 0 auto;
+    background: var(--background-primary);
+    border-radius: 8px;
+}
+
+.ai-stats-title {
+    color: var(--text-normal);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Фильтры */
+.ai-stats-filters {
+    display: flex;
+    align-items: center;
+    gap: calc(30px * var(--stats-modal-scale-width));
+    margin-top: calc(20px * var(--stats-modal-scale-height));
+    padding: calc(16px * var(--stats-modal-scale-height)) calc(16px * var(--stats-modal-scale-width));
+    background: var(--background-secondary);
+    border-radius: calc(8px * var(--stats-modal-scale-width));
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+}
+
+/* Стилизация полосы прокрутки для фильтров */
+.ai-stats-filters::-webkit-scrollbar {
+    height: calc(6px * var(--stats-modal-scale-height));
+}
+
+.ai-stats-filters::-webkit-scrollbar-track {
+    background: var(--background-modifier-border);
+    border-radius: calc(3px * var(--stats-modal-scale-width));
+}
+
+.ai-stats-filters::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: calc(3px * var(--stats-modal-scale-width));
+}
+
+.ai-stats-filters::-webkit-scrollbar-thumb:hover {
+    background: var(--text-normal);
+}
+
+.ai-filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: calc(200px * var(--stats-modal-scale-width));
+    flex-shrink: 0;
+}
+
+.ai-filter-label {
+    color: var(--text-muted);
+    font-size: calc(0.9em * var(--stats-modal-scale-width));
+    font-weight: 500;
+    min-width: calc(80px * var(--stats-modal-scale-width));
+}
+
+.ai-dropdown-container {
+    position: relative;
+}
+
+.ai-dropdown-button {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: calc(8px * var(--stats-modal-scale-height)) calc(16px * var(--stats-modal-scale-width));
+    color: var(--text-normal);
+    font-size: calc(0.9em * var(--stats-modal-scale-width));
+    cursor: pointer;
+    min-width: calc(150px * var(--stats-modal-scale-width));
+    width: calc(150px * var(--stats-modal-scale-width));
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.ai-dropdown-button:after {
+    content: "▼";
+    font-size: 0.7em;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+}
+
+.ai-dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    max-height: calc(200px * var(--stats-modal-scale-height));
+    overflow-y: auto;
+}
+
+.ai-dropdown-content.ai-dropdown-active {
+    display: block;
+}
+
+.ai-dropdown-option {
+    width: 100%;
+    padding: calc(10px * var(--stats-modal-scale-height)) calc(16px * var(--stats-modal-scale-width));
+    background: none;
+    border: none;
+    text-align: left;
+    color: var(--text-normal);
+    font-size: calc(0.9em * var(--stats-modal-scale-width));
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ai-dropdown-option:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.ai-dropdown-option:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* Контейнер для select элементов */
+.ai-select-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Стили для select элементов в модуле статистики */
+.ai-stats-filter-select {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: calc(8px * var(--stats-modal-scale-height)) calc(32px * var(--stats-modal-scale-width)) calc(8px * var(--stats-modal-scale-height)) calc(40px * var(--stats-modal-scale-width));
+    color: var(--text-normal);
+    font-size: calc(0.9em * var(--stats-modal-scale-width));
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: all 0.2s ease;
+    height: calc(38px * var(--stats-modal-scale-height));
+    background-repeat: no-repeat;
+    background-position: calc(12px * var(--stats-modal-scale-width)) center;
+    background-size: calc(16px * var(--stats-modal-scale-width)) calc(16px * var(--stats-modal-scale-width));
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Иконки для разных типов селекторов */
+.ai-stats-filter-select-users {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+.ai-stats-filter-select-models {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E");
+}
+
+.ai-stats-filter-select-periods {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+}
+
+/* Стрелка для выпадающего списка */
+.ai-select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--text-muted);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+/* Стрелка вверх при раскрытом списке */
+.ai-select-arrow.ai-select-arrow-up {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Контейнер для пользовательских дат */
+.ai-custom-date-container {
+    gap: 4px;
+}
+
+.ai-custom-date-container .ai-filter-label {
+    min-width: calc(30px * var(--stats-modal-scale-width));
+}
+
+.ai-date-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 0;
+}
+
+.ai-date-label {
+    color: var(--text-muted);
+    font-size: calc(0.9em * var(--stats-modal-scale-width));
+    font-weight: 500;
+    min-width: calc(25px * var(--stats-modal-scale-width));
+}
+
+.ai-date-input {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: calc(8px * var(--stats-modal-scale-height)) calc(16px * var(--stats-modal-scale-width));
+    color: var(--text-normal);
+    font-size: calc(0.9em * var(--stats-modal-scale-width));
+    transition: all 0.2s ease;
+    flex: 1;
+    height: calc(38px * var(--stats-modal-scale-height));
+    text-align: center;
+}
+
+.ai-date-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+}
+
+/* Применяем базовые hover классы */
+.ai-dropdown-button:hover,
+.ai-stats-filter-select:hover,
+.ai-date-input:hover,
+.ai-stats-filter-select-users:hover,
+.ai-stats-filter-select-models:hover,
+.ai-stats-filter-select-periods:hover {
+    background: var(--background-modifier-hover);
+    border-color: var(--background-modifier-border-hover);
+}
+
+.ai-dropdown-option:hover {
+    background: var(--background-modifier-hover);
+}
+
+.ai-stats-filter-select:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+}
+
+/* Статистические карточки */
+.ai-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(240px * var(--stats-modal-scale-width)), 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.ai-stats-card {
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-stats-card-with-tooltip {
+    overflow: visible;
+}
+
+.ai-stats-card-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.ai-stats-card-gold {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.ai-stats-card-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.ai-stats-card-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.ai-stats-card-info {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.ai-stats-card-free {
+    background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+.ai-stats-card-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.ai-stats-card-vip {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #dc2626 100%);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+    position: relative;
+}
+
+.ai-stats-card-vip::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #ef4444 100%);
+    border-radius: 8px;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ai-stats-card-vip:hover::before {
+    opacity: 0.3;
+}
+
+.ai-stats-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.ai-stats-card::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    opacity: 0.15;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ai-stats-card-primary::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M18 17V9'/%3E%3Cpath d='M13 17V5'/%3E%3Cpath d='M8 17v-3'/%3E%3C/svg%3E");
+}
+
+.ai-stats-card-gold::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+.ai-stats-card-success::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v20m8-10H4'/%3E%3C/svg%3E");
+}
+
+.ai-stats-card-warning::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3'/%3E%3C/svg%3E");
+}
+
+.ai-stats-card-info::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 1v6m6 6h6m-6 6v6m-6-6H1'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3C/svg%3E");
+}
+
+.ai-stats-card-free::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6'/%3E%3Cline x1='12' y1='7' x2='12' y2='13'/%3E%3Cline x1='9' y1='10' x2='15' y2='10'/%3E%3Cpath d='M17 21v-4a2 2 0 1 1 4 0v4'/%3E%3Cpath d='M17 21h4'/%3E%3C/svg%3E");
+}
+
+.ai-stats-card-danger::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z'/%3E%3Cline x1='12' y1='9' x2='12' y2='13'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E");
+}
+
+.ai-stats-card-vip::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm1.1-1.5h11.8l1.2-7.3-3.7 3.3-3.4-5.9-3.4 5.9-3.7-3.3 1.2 7.3zM19 19c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1s.4-1 1-1h12c.6 0 1 .4 1 1z'/%3E%3C/svg%3E");
+    width: 32px;
+    height: 32px;
+    opacity: 0.2;
+}
+
+.ai-stats-card-label {
+    font-size: 0.75em;
+    opacity: 0.9;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.ai-stats-card-value {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.ai-stats-card-description,
+.ai-stats-card-subtitle {
+    font-size: 0.85em;
+    opacity: 0.8;
+    line-height: 1.3;
+}
+
+/* Стили для топ-3 моделей в карточке */
+.ai-stats-card-models-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-top: 2px;
+}
+
+.ai-stats-card-model-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7em;
+    line-height: 1.4;
+    gap: 4px;
+}
+
+.ai-stats-card-model-name {
+    font-weight: 400;
+    opacity: 0.9;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.ai-stats-card-model-stats {
+    opacity: 0.85;
+    font-size: 1em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-weight: 500;
+}
+
+/* Стили для отображения одной выбранной модели */
+.ai-stats-card-single-model {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 4px;
+}
+
+.ai-stats-card-single-model-name {
+    font-size: 0.85em;
+    font-weight: 500;
+    opacity: 0.95;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ai-stats-card-single-model-count {
+    font-size: 1.3em;
+    font-weight: 700;
+    opacity: 1;
+}
+
+.ai-stats-card-no-data {
+    font-size: 0.75em;
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+/* Диаграмма */
+.ai-stats-chart {
+    background: var(--background-secondary);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.ai-chart {
+    height: calc(380px * var(--stats-modal-scale-height));
+    padding: 20px;
+    background: var(--background-primary);
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    position: relative;
+    display: grid;
+    grid-template-columns: calc(60px * var(--stats-modal-scale-width)) 1fr;
+    grid-template-rows: 1fr calc(40px * var(--stats-modal-scale-height));
+    gap: 0;
+}
+
+/* Шкала значений слева */
+.ai-chart-y-axis {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 0 10px 0 0;
+    border-right: 1px solid var(--background-modifier-border);
+    position: relative;
+}
+
+.ai-chart-y-label {
+    font-size: 0.7em;
+    color: var(--text-muted);
+    text-align: right;
+    padding-right: 8px;
+    line-height: 1;
+    position: absolute;
+    right: 8px;
+}
+
+/* Линия шкалы значений снизу */
+.ai-chart-x-axis {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 0 0 0;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+/* Корректировка контейнера для столбцов */
+.ai-chart-bars-container {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2px;
+    position: relative;
+    overflow: visible;
+    padding: 0;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* Горизонтальные линии сетки */
+.ai-chart-grid-line {
+    position: absolute;
+    left: -60px;
+    right: 0;
+    height: 1px;
+    background: var(--background-modifier-border);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.ai-chart-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    justify-content: flex-end;
+    min-width: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.ai-chart-bar {
+    background: linear-gradient(to top, #3b82f6, #7dd3fc);
+    width: 100%;
+    max-width: calc(100px * var(--stats-modal-scale-width));
+    border-radius: 3px 3px 0 0;
+    min-height: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 0;
+}
+
+/* Tooltip над столбиком */
+.ai-chart-bar::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--background-modifier-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 0.8em;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    margin-bottom: 5px;
+}
+
+/* Показываем tooltip при наведении на контейнер */
+.ai-chart-bar-container:hover .ai-chart-bar::before {
+    opacity: 1;
+}
+
+.ai-chart-bar:hover {
+    background: linear-gradient(to top, #1d4ed8, #3b82f6);
+}
+
+.ai-chart-label {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.2;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ai-chart-label-vertical {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    height: calc(50px * var(--stats-modal-scale-height));
+    margin-top: 0;
+}
+
+.ai-chart-label-horizontal {
+    height: calc(20px * var(--stats-modal-scale-height));
+}
+
+.ai-chart-no-data {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 40px 0;
+}
+
+/* Темная тема */
+.theme-dark .ai-stats-modal {
+    background: var(--background-primary);
+}
+
+.theme-dark .ai-dropdown-content {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .ai-chart-bar {
+    background: linear-gradient(to top, #1e40af, #60a5fa);
+}
+
+.theme-dark .ai-chart-bar:hover {
+    background: linear-gradient(to top, #1e3a8a, #3b82f6);
+}
+
+.theme-dark .ai-chart-bar::before {
+    background: var(--background-primary);
+    border-color: var(--background-modifier-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для таблицы логов */
+.ai-logs-table-container {
+    margin-top: calc(20px * var(--stats-modal-scale-height));
+    padding: calc(20px * var(--stats-modal-scale-width));
+    background: var(--background-secondary);
+    border-radius: calc(12px * var(--stats-modal-scale-width));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ai-logs-table-title {
+    font-size: calc(18px * var(--stats-modal-scale-width));
+    font-weight: 600;
+    color: var(--text-normal);
+    margin-bottom: calc(15px * var(--stats-modal-scale-height));
+}
+
+.ai-logs-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: calc(8px * var(--stats-modal-scale-width));
+}
+
+.ai-logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: calc(14px * var(--stats-modal-scale-width));
+}
+
+.ai-logs-table thead {
+    position: sticky;
+    top: 0;
+    background: var(--background-primary);
+    z-index: 10;
+}
+
+.ai-logs-table th {
+    padding: calc(12px * var(--stats-modal-scale-width)) calc(8px * var(--stats-modal-scale-width));
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-normal);
+    border-bottom: 2px solid var(--background-modifier-border);
+    white-space: nowrap;
+}
+
+.ai-logs-table tbody tr {
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.ai-logs-table tbody tr:hover {
+    background: var(--background-modifier-hover);
+}
+
+.ai-logs-table td {
+    padding: calc(10px * var(--stats-modal-scale-width)) calc(8px * var(--stats-modal-scale-width));
+    color: var(--text-muted);
+}
+
+.ai-logs-number {
+    text-align: center;
+}
+
+.ai-logs-status {
+    padding: calc(4px * var(--stats-modal-scale-width)) calc(8px * var(--stats-modal-scale-width));
+    border-radius: calc(4px * var(--stats-modal-scale-width));
+    font-size: calc(12px * var(--stats-modal-scale-width));
+    font-weight: 500;
+}
+
+.ai-logs-status-success {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+}
+
+.ai-logs-status-error {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+.ai-logs-no-data {
+    text-align: center;
+    padding: calc(40px * var(--stats-modal-scale-height));
+    color: var(--text-muted);
+    font-size: calc(14px * var(--stats-modal-scale-width));
+}
+
+/* Пагинация */
+.ai-logs-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: calc(15px * var(--stats-modal-scale-height));
+    padding: calc(10px * var(--stats-modal-scale-width));
+}
+
+.ai-logs-pagination-info {
+    color: var(--text-muted);
+    font-size: calc(14px * var(--stats-modal-scale-width));
+}
+
+.ai-logs-pagination-buttons {
+    display: flex;
+    gap: calc(5px * var(--stats-modal-scale-width));
+}
+
+.ai-logs-pagination-buttons .button-container {
+    min-width: calc(32px * var(--stats-modal-scale-width));
+}
+
+.ai-logs-pagination-buttons button {
+    padding: calc(4px * var(--stats-modal-scale-width)) calc(8px * var(--stats-modal-scale-width));
+    font-size: calc(14px * var(--stats-modal-scale-width));
+}
+
+/* Стили для всплывающих подсказок на карточках */
+.ai-stats-card-with-tooltip {
+    cursor: help;
+    position: relative;
+}
+
+.ai-stats-card-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.ai-stats-card-with-tooltip:hover .ai-stats-card-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ai-stats-card-tooltip-content {
+    color: var(--text-normal);
+}
+
+.ai-stats-card-tooltip-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-normal);
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 8px;
+}
+
+.ai-stats-card-tooltip-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ai-stats-card-tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    padding: 4px 0;
+}
+
+.ai-stats-card-tooltip-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-muted);
+    margin-right: 12px;
+}
+
+.ai-stats-card-tooltip-stats {
+    font-weight: 500;
+    color: var(--text-normal);
+    white-space: nowrap;
+}
+
+.ai-stats-card-tooltip-more {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+/* Стрелка для подсказки */
+.ai-stats-card-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--background-modifier-border);
+}
+
+.ai-stats-card-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid var(--background-primary);
+    margin-top: -1px;
+}
+
+/* Список моделей в подсказке */
+.ai-stats-card-tooltip-models-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.ai-stats-card-tooltip-model-item {
+    font-size: 13px;
+    color: var(--text-normal);
+    padding: 2px 0;
+}
+
+/* Пояснение в подсказке */
+.ai-stats-card-tooltip-explanation {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    padding-top: 12px;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.ai-stats-card-tooltip-explanation strong {
+    color: var(--text-normal);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.ai-stats-card-tooltip-explanation em {
+    font-style: normal;
+    color: var(--text-normal);
+    font-weight: 500;
+}
+
+/* Для темной темы */
+.theme-dark .ai-stats-card-tooltip {
+    background: var(--background-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* =============================
+   Стили для админ-панели
+   ============================= */
+
+.ai-admin-panel-modal {
+    width: calc(1250px * var(--stats-modal-scale-width)) !important;
+    height: auto !important;
+    max-width: calc(1250px * var(--stats-modal-scale-width)) !important;
+    max-height: 90vh !important;
+    min-width: calc(1250px * var(--stats-modal-scale-width)) !important;
+    min-height: calc(800px * var(--stats-modal-scale-height)) !important;
+}
+
+.ai-admin-panel-modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.ai-admin-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.ai-admin-panel-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-normal);
+}
+
+/* Панель поиска и статистики */
+.ai-admin-search-panel {
+    padding: 12px 16px;
+    background: var(--background-secondary);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.ai-admin-search-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.ai-admin-search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ai-admin-search-label {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.ai-admin-search-input {
+    min-width: 200px;
+}
+
+.ai-admin-sort-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ai-admin-sort-type {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-admin-sort-label {
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.ai-admin-sort-order-btn {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-normal);
+}
+
+.ai-admin-sort-order-btn:hover {
+    background: var(--background-modifier-hover);
+    border-color: var(--background-modifier-border-hover);
+}
+
+/* Строка с кнопками действий удалена */
+
+.ai-admin-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.ai-admin-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ai-admin-stat-label {
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+.ai-admin-stat-value {
+    font-weight: 600;
+    color: var(--text-normal);
+}
+
+/* Контейнер таблицы */
+.ai-admin-table-wrapper {
+    flex: 1;
+    overflow: auto;
+    padding: 0 4px 16px 4px;
+    position: relative;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    background: var(--background-primary);
+}
+
+.ai-admin-no-users {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 40px;
+}
+
+/* Таблица пользователей */
+.ai-admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.ai-admin-table thead {
+    position: sticky;
+    top: 0;
+    background: var(--background-secondary);
+    z-index: 10;
+}
+
+.ai-admin-table th {
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-normal);
+    border-bottom: 2px solid var(--background-modifier-border);
+    white-space: nowrap;
+}
+
+.ai-admin-th-sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.ai-admin-th-sortable:hover {
+    background: var(--background-modifier-hover);
+}
+
+.ai-admin-th-sorted {
+    background: var(--background-modifier-active);
+}
+
+.ai-admin-sort-indicator {
+    opacity: 0.6;
+    font-size: 0.9em;
+}
+
+/* Строки таблицы */
+.ai-admin-user-row {
+    border-bottom: 1px solid var(--background-modifier-border);
+    transition: background 0.2s ease;
+}
+
+.ai-admin-user-row:hover {
+    background: var(--background-modifier-hover);
+}
+
+.ai-admin-table td {
+    padding: 8px;
+    vertical-align: middle;
+}
+
+/* Ячейка email */
+.ai-admin-cell-email {
+    min-width: 200px;
+}
+
+.ai-admin-email-text {
+    font-weight: 500;
+    color: var(--text-normal);
+    margin-bottom: 2px;
+}
+
+.ai-admin-email-meta {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+/* Ячейка регистрации */
+.ai-admin-cell-reg {
+    white-space: nowrap;
+}
+
+.ai-admin-reg-time {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+.ai-admin-reg-date {
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+/* Ячейка уровня */
+.ai-admin-cell-level {
+    min-width: 120px;
+}
+
+/* Селекторы в админ-панели без боковых отступов */
+.ai-admin-cell-level .ai-stats-filter-select {
+    padding: calc(8px * var(--stats-modal-scale-height)) calc(8px * var(--stats-modal-scale-width)) calc(8px * var(--stats-modal-scale-height)) calc(8px * var(--stats-modal-scale-width));
+}
+
+
+/* Ячейка дневных лимитов */
+.ai-admin-cell-daily-limit {
+    min-width: 200px;
+}
+
+.ai-admin-daily-limit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ai-admin-limit-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 26px;
+}
+
+.ai-admin-limit-prefix {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    font-weight: 500;
+    min-width: 65px;
+    text-align: right;
+}
+
+/* Компактные лимиты */
+.ai-admin-compact-limits {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ai-admin-compact-limit {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ai-admin-limit-used {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 4px;
+}
+
+
+.ai-admin-compact-input {
+    width: 70px;
+    padding: 2px 6px;
+    font-size: 0.85em;
+    height: 24px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    background: var(--background-primary);
+    margin-left: 4px;
+}
+
+.ai-admin-compact-input:focus {
+    border-color: var(--interactive-accent);
+    outline: none;
+}
+
+
+/* Ячейка сроков подписки */
+.ai-admin-cell-subscription {
+    min-width: 240px;
+}
+
+.ai-admin-subscription-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Компактный срок действия */
+.ai-admin-expiration-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ai-admin-expiration-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-admin-expiration-prefix {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    font-weight: 500;
+    min-width: 18px;
+}
+
+.ai-admin-compact-expiration {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+
+.ai-admin-expiration-normal {
+    font-size: 0.8em;
+    color: #10b981;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.ai-admin-expiration-warning {
+    font-size: 0.8em;
+    color: #ef4444;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.ai-admin-expiration-unlimited {
+    font-size: 0.8em;
+    color: #3b82f6;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Кликабельный текст срока */
+.ai-admin-expiration-clickable {
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.ai-admin-expiration-clickable:hover {
+    background: var(--background-modifier-hover);
+    text-decoration: underline;
+}
+
+.ai-admin-expiration-clickable:focus {
+    outline: 2px solid var(--interactive-accent);
+    outline-offset: 2px;
+}
+
+/* Кликабельный текст лимитов */
+.ai-admin-limit-clickable {
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    user-select: none;
+    font-size: 0.85em;
+    color: var(--text-normal);
+    white-space: nowrap;
+}
+
+.ai-admin-limit-clickable:hover {
+    background: var(--background-modifier-hover);
+    text-decoration: underline;
+}
+
+.ai-admin-limit-clickable:focus {
+    outline: 2px solid var(--interactive-accent);
+    outline-offset: 2px;
+}
+
+/* Цветовая индикация для лимитов */
+.ai-admin-limit-exhausted {
+    color: #ef4444 !important;
+    font-weight: 500;
+}
+
+.ai-admin-limit-unlimited {
+    color: #3b82f6 !important;
+    font-weight: 500;
+}
+
+.ai-admin-limit-normal {
+    color: #10b981 !important;
+    font-weight: 500;
+}
+
+/* Единое поле ввода для лимитов */
+.ai-admin-limit-input-unified {
+    width: 100px !important;
+    padding: 2px 6px !important;
+    font-size: 0.85em !important;
+    height: 24px !important;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    background: var(--background-primary);
+    margin: 0;
+}
+
+.ai-admin-limit-input-unified:focus {
+    border-color: var(--interactive-accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+}
+
+/* Единое поле ввода для редактирования */
+.ai-admin-expiration-input-unified {
+    width: 140px !important;
+    padding: 2px 6px !important;
+    font-size: 0.8em !important;
+    height: 24px !important;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 3px;
+    background: var(--background-primary);
+    margin: 0;
+}
+
+.ai-admin-expiration-input-unified:focus {
+    border-color: var(--interactive-accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+}
+
+/* Ячейка действий */
+.ai-admin-cell-actions {
+    text-align: center;
+}
+
+/* Контейнер для кнопок в админ-панели */
+.ai-admin-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Модальное окно редактирования срока */
+.ai-admin-modal-mode-toggle {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+    justify-content: center;
+}
+
+.ai-admin-hidden {
+    display: none !important;
+}
+
+/* Удалены старые стили карточек - теперь используется табличное представление */
+
+
+/* Анимация удалена вместе с общей кнопкой сохранения */
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    /* Админ-панель */
+    .ai-admin-panel-modal {
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    .ai-admin-limits-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .ai-admin-user-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .ai-admin-stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .ai-admin-access-level {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .ai-admin-search-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .ai-admin-sort-row {
+        flex-wrap: wrap;
+    }
+    
+    /* Модальное окно статистики */
+    .ai-stats-modal {
+        padding: 16px;
+    }
+    
+    .ai-stats-filters {
+        gap: calc(16px * var(--stats-modal-scale-width));
+    }
+    
+    .ai-stats-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .ai-chart {
+        height: calc(250px * var(--stats-modal-scale-height));
+    }
+    
+    .ai-chart-label {
+        font-size: 0.7em;
+    }
+}
+
+/* Темная тема */
+.theme-dark .ai-admin-table-wrapper {
+    background: var(--background-secondary);
+}
+
+.theme-dark .ai-admin-compact-input {
+    background: var(--background-secondary);
+    border-color: var(--background-modifier-border);
+}
+

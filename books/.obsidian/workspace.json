@@ -1,0 +1,248 @@
+{
+  "main": {
+    "id": "91699ad1f7846aa8",
+    "type": "split",
+    "children": [
+      {
+        "id": "fd0adfa84271e45d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "39f3f2465bc71096",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Мертвяк/Главы (new)/Глава 18 черновик.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Глава 18 черновик"
+            }
+          },
+          {
+            "id": "7b771d9b5f933016",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Мертвяк/Информация/Инструкция.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Инструкция"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "73b8c2f6d76a3e92",
+    "type": "split",
+    "children": [
+      {
+        "id": "2c35f4cafc2150c3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6f92014b928ec751",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "8a7767c3de8b74de",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Поиск"
+            }
+          },
+          {
+            "id": "ad50fd128f8a6437",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Закладки"
+            }
+          },
+          {
+            "id": "a8766f6d50c0c630",
+            "type": "leaf",
+            "state": {
+              "type": "ai-chat-view",
+              "state": {},
+              "icon": "bot-message-square",
+              "title": "ИИ Чат"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "41b8e1136a89f109",
+    "type": "split",
+    "children": [
+      {
+        "id": "5e9ac06a5b80c799",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e62fe3f4e15c60d9",
+            "type": "leaf",
+            "state": {
+              "type": "ai-config-view",
+              "state": {},
+              "icon": "lucide-bot",
+              "title": "Конфигурация ИИ"
+            }
+          },
+          {
+            "id": "5e176c2d5158882f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Мертвяк/Бла.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки для Бла"
+            }
+          },
+          {
+            "id": "5b177748658d9358",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Добро пожаловать.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки из Добро пожаловать"
+            }
+          },
+          {
+            "id": "50e4d4fe8fecc432",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
+            }
+          },
+          {
+            "id": "640c9f7f59606910",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Добро пожаловать.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Структура Добро пожаловать"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false,
+      "dashboard-navigator:Open dashboard navigator": false,
+      "iconic:Открыть свод правил": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "39f3f2465bc71096",
+  "lastOpenFiles": [
+    "Мертвяк/Информация/Инструкция.md",
+    "Мертвяк/Главы (new)/Глава 18 черновик.md",
+    "Мертвяк/Главы (new)/Глава 16 финал.md",
+    "Мертвяк/Информация/Короткая инструкция.md",
+    "Мертвяк/Сюжет/Инструкция.md",
+    "Мертвяк/Главы (new)/Глава 17 финал.md",
+    "Мертвяк/Пересказы/Глава 16 пересказ.md",
+    "Мертвяк/Сюжет/Глава 18 сюжет.md",
+    "Мертвяк/Сюжет/Наброски по текущей главе.md",
+    "Мертвяк/Пересказы/Глава 13 пересказ.md",
+    "Мертвяк/Главы (new)/Глава 13 финал.md",
+    "Мертвяк/Пересказы/Глава 12 пересказ.md",
+    "Мертвяк/Пересказы/Глава 11 пересказ.md",
+    "Мертвяк/Персонажи/Предыстория Алекса.md",
+    "Мертвяк/Информация/Религия.md",
+    "Мертвяк/Сюжет/Полный сюжет на остаток глав.md",
+    "Мертвяк/Пересказы/Глава 17 пересказ.md",
+    "Мертвяк/Сюжет/Глава 17 сюжет.md",
+    "Мертвяк/Пересказы/Глава 15 пересказ.md",
+    "Мертвяк/Сюжет/Наброски (общее).md",
+    "Мертвяк/Пересказы/Инструкция.md",
+    "Мертвяк/Сюжет/Глава 16 сюжет.md",
+    "Мертвяк/Главы (new)/Глава 15 финал.md",
+    "Мертвяк/Пересказы/Глава 14 пересказ.md",
+    "Мертвяк/Пересказы/Глава 10 пересказ интерлюдия.md",
+    "Мертвяк/Пересказы/Глава 8 пересказ.md",
+    "Мертвяк/Мир",
+    "Мертвяк/OLD",
+    "Мертвяк/Пересказы/Пересказы (new)",
+    "Мертвяк/OLD/Пересказы (old)",
+    "Мертвяк/Сюжет/Новые главы подробно",
+    "Мертвяк/OLD/Сюжет поглавно (старая версия)",
+    "Мертвяк/Главы (new)",
+    "Мертвяк/Без названия.canvas",
+    "Слои/Сюжеты",
+    "Слои/Пересказы",
+    "Слои/Главы"
+  ]
+}

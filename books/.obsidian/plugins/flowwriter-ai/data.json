@@ -1,0 +1,501 @@
+{
+  "serverUrl": "http://91.200.148.125:3000",
+  "selectedModelName": "Gemini 2.5 Pro",
+  "chatSelectedModelName": "Default User Model",
+  "chatModeModels": {},
+  "lastSelectedChatMode": "Обсуждение",
+  "temperature": 0.7,
+  "maxTokens": 16000,
+  "replacePrompt": "Инструкция:\nОтредактируй текст в тегах отрывка <отрывок>...</отрывок> в соответствии с дополнительными инструкциями пользователя.\nЕсли дополнительные инструкции не предоставлены, то просто отредактируй его, стараясь сделать лучше. \nВ ответе пиши только исправленный текст, который заменит предыдущий. \n**Теги отрывка указывать запрещено!**\n\n<отрывок>{{selected_text}}</отрывок>\n\n## Дополнительные инструкции для редактирования, если они доступны (игнорируйте, если не найдены):\n\n{{user_input}}",
+  "referenceNotesFolder": "",
+  "hideMarkdownStyles": false,
+  "referenceIncludeSubfolders": true,
+  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjY2ExZDg2My1iNDhhLTRlYjYtODY4My0zYmRlYmM3Zjk0MTEiLCJlbWFpbCI6Imdvcml2YW5pY2tpeUBnbWFpbC5jb20iLCJpYXQiOjE3NjIxMzgyMzQsImV4cCI6MTc2Mjc0MzAzNH0.lXV3-ByVzJztH5Gy55T1kl7zga-CG8l6T3huA26MyEc",
+  "userEmail": "gorivanickiy@gmail.com",
+  "referenceSpaces": [
+    {
+      "id": 1755101190096,
+      "number": 1,
+      "name": "Основное мертвяк",
+      "notes": [
+        {
+          "path": "Мертвяк/Информация/Роль.md",
+          "customLabel": "Роль",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Стилистический гайд.md",
+          "customLabel": "Стилистический гайд",
+          "enabled": false,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Религия.md",
+          "customLabel": "Религия",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Персонажи/Главный герой.md",
+          "customLabel": "Главный герой",
+          "enabled": true,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Спецификация Системы.md",
+          "customLabel": "Спецификация Системы",
+          "enabled": true,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Глава 16 пересказ.md",
+          "customLabel": "Глава 16 пересказ",
+          "enabled": true,
+          "position": 5,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Главы (new)/Глава 17 финал.md",
+          "customLabel": "Глава 17 финал",
+          "enabled": true,
+          "position": 6,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Сюжет/Глава 18 сюжет.md",
+          "customLabel": "Глава 18 сюжет",
+          "enabled": true,
+          "position": 7,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Короткая инструкция.md",
+          "customLabel": "Короткая инструкция",
+          "enabled": false,
+          "position": 8,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Инструкция.md",
+          "customLabel": "Инструкция",
+          "enabled": true,
+          "position": 9,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1760029565908,
+      "number": 2,
+      "name": "Пересказы мертвяк",
+      "notes": [
+        {
+          "path": "Мертвяк/Главы (new)/Глава 17 финал.md",
+          "customLabel": "Глава 17 финал",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Инструкция.md",
+          "customLabel": "Инструкция",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1760269793849,
+      "number": 3,
+      "name": "Сценарист мертвяк",
+      "notes": [
+        {
+          "path": "Мертвяк/Сюжет/Роль Сценарист.md",
+          "customLabel": "Роль Сценарист",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Мир/Макроэкономика и логика.md",
+          "customLabel": "Макроэкономика и логика",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Религия.md",
+          "customLabel": "Религия",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Персонажи/Предыстория Алекса.md",
+          "customLabel": "Предыстория Алекса",
+          "enabled": true,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Стилистический гайд.md",
+          "customLabel": "Стилистический гайд",
+          "enabled": false,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Спецификация Системы.md",
+          "customLabel": "Спецификация Системы",
+          "enabled": true,
+          "position": 5,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Персонажи/Главный герой.md",
+          "customLabel": "Главный герой",
+          "enabled": true,
+          "position": 6,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Глава 11 пересказ.md",
+          "customLabel": "Глава 11 пересказ",
+          "enabled": true,
+          "position": 7,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Глава 12 пересказ.md",
+          "customLabel": "Глава 12 пересказ",
+          "enabled": true,
+          "position": 8,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Глава 13 пересказ.md",
+          "customLabel": "Глава 13 пересказ",
+          "enabled": true,
+          "position": 9,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Глава 14 пересказ.md",
+          "customLabel": "Глава 14 пересказ",
+          "enabled": true,
+          "position": 10,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Глава 15 пересказ.md",
+          "customLabel": "Глава 15 пересказ",
+          "enabled": true,
+          "position": 11,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Глава 16 пересказ.md",
+          "customLabel": "Глава 16 пересказ",
+          "enabled": true,
+          "position": 12,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Главы (new)/Глава 17 финал.md",
+          "customLabel": "Глава 17 финал",
+          "enabled": true,
+          "position": 13,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Сюжет/Фрактальная структура.md",
+          "customLabel": "Фрактальная структура",
+          "enabled": true,
+          "position": 14,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Сюжет/Наброски (общее).md",
+          "customLabel": "Наброски (общее)",
+          "enabled": false,
+          "position": 15,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Сюжет/Наброски по текущей главе.md",
+          "customLabel": "Наброски по текущей главе",
+          "enabled": true,
+          "position": 16,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Сюжет/Инструкция.md",
+          "customLabel": "Инструкция",
+          "enabled": true,
+          "position": 17,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1760416527593,
+      "number": 4,
+      "name": "Кусочки",
+      "notes": [
+        {
+          "path": "Мертвяк/Информация/Роль.md",
+          "customLabel": "Роль",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Стилистический гайд.md",
+          "customLabel": "Стилистический гайд",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Цепной Приказ - регламент.md",
+          "customLabel": "Цепной Приказ - регламент",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Схема шахты.md",
+          "customLabel": "Схема шахты",
+          "enabled": true,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Информация/Технологии.md",
+          "customLabel": "Технологии",
+          "enabled": true,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Пересказы (old)/Глава 8 пересказ.md",
+          "customLabel": "Глава 8 пересказ",
+          "enabled": true,
+          "position": 5,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Пересказы (old)/Глава 9 пересказ.md",
+          "customLabel": "Глава 9 пересказ",
+          "enabled": true,
+          "position": 6,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 10.md",
+          "customLabel": "Глава 10",
+          "enabled": true,
+          "position": 7,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1760328278590,
+      "number": 5,
+      "name": "Слои",
+      "notes": [
+        {
+          "path": "Слои/Роль.md",
+          "customLabel": "Роль",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Стилистический гайд по тексту.md",
+          "customLabel": "Стилистический гайд по тексту",
+          "enabled": false,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 1 пересказ.md",
+          "customLabel": "Глава 1 пересказ",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 2 пересказ.md",
+          "customLabel": "Глава 2 пересказ",
+          "enabled": true,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 3 пересказ.md",
+          "customLabel": "Глава 3 пересказ",
+          "enabled": true,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 4 пересказ.md",
+          "customLabel": "Глава 4 пересказ",
+          "enabled": true,
+          "position": 5,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 5 пересказ.md",
+          "customLabel": "Глава 5 пересказ",
+          "enabled": true,
+          "position": 6,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 6 пересказ.md",
+          "customLabel": "Глава 6 пересказ",
+          "enabled": true,
+          "position": 7,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 7 пересказ.md",
+          "customLabel": "Глава 7 пересказ",
+          "enabled": true,
+          "position": 8,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 8 пересказ.md",
+          "customLabel": "Глава 8 пересказ",
+          "enabled": true,
+          "position": 9,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Глава 9 пересказ.md",
+          "customLabel": "Глава 9 пересказ",
+          "enabled": true,
+          "position": 10,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Сюжеты/Сюжет 10.md",
+          "customLabel": "Сюжет 10",
+          "enabled": true,
+          "position": 11,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Пересказы/Инструкция.md",
+          "customLabel": "Инструкция",
+          "enabled": true,
+          "position": 12,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1760332047309,
+      "number": 6,
+      "name": "Стиль",
+      "notes": [
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 1.md",
+          "customLabel": "Глава 1",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 2.md",
+          "customLabel": "Глава 2",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 3.md",
+          "customLabel": "Глава 3",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 4.md",
+          "customLabel": "Глава 4",
+          "enabled": true,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 7.md",
+          "customLabel": "Глава 7",
+          "enabled": true,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 9.md",
+          "customLabel": "Глава 9",
+          "enabled": true,
+          "position": 5,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/OLD/Главы (old)/Глава 10.md",
+          "customLabel": "Глава 10",
+          "enabled": true,
+          "position": 6,
+          "selectedReference": false
+        },
+        {
+          "path": "Слои/Инструкция для стиля.md",
+          "customLabel": "Инструкция для стиля",
+          "enabled": true,
+          "position": 7,
+          "selectedReference": false
+        }
+      ]
+    }
+  ],
+  "activeReferenceSpaceId": 1755101190096,
+  "viewActiveSpaces": {
+    "Мертвяк/Главы (new)/Глава 18 черновик.md": 1755101190096
+  },
+  "viewActiveModels": {
+    "Мертвяк/Главы (new)/Глава 18 черновик.md": "Gemini 2.5 Pro"
+  },
+  "viewActiveToolCategories": {
+    "Мертвяк/Главы (new)/Глава 18 черновик.md": {
+      "read": false,
+      "mutate": false,
+      "assistant": false
+    }
+  },
+  "rememberLastInstruction": false,
+  "lastReplaceInstruction": "",
+  "cacheDuration": 0,
+  "rememberApiKey": false,
+  "savedApiKey": null,
+  "statsModalSelectors": {
+    "selectedPeriod": "За неделю",
+    "selectedModel": "Все",
+    "selectedUser": ""
+  },
+  "inNoteToolCategories": {
+    "read": false,
+    "mutate": false,
+    "assistant": false
+  }
+}
