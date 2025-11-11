@@ -10,7 +10,7 @@
   "referenceNotesFolder": "",
   "hideMarkdownStyles": false,
   "referenceIncludeSubfolders": true,
-  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjY2ExZDg2My1iNDhhLTRlYjYtODY4My0zYmRlYmM3Zjk0MTEiLCJlbWFpbCI6Imdvcml2YW5pY2tpeUBnbWFpbC5jb20iLCJpYXQiOjE3NjIxMzgyMzQsImV4cCI6MTc2Mjc0MzAzNH0.lXV3-ByVzJztH5Gy55T1kl7zga-CG8l6T3huA26MyEc",
+  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjY2ExZDg2My1iNDhhLTRlYjYtODY4My0zYmRlYmM3Zjk0MTEiLCJlbWFpbCI6Imdvcml2YW5pY2tpeUBnbWFpbC5jb20iLCJpYXQiOjE3NjI0ODQwNjcsImV4cCI6MTc2MzA4ODg2N30.lvjjaKghGVCijI9TJMlM8iboKtxwNUC4XBg0JVNnBaE",
   "userEmail": "gorivanickiy@gmail.com",
   "referenceSpaces": [
     {
@@ -467,17 +467,99 @@
           "selectedReference": false
         }
       ]
+    },
+    {
+      "id": 1762482807008,
+      "number": 7,
+      "name": "Апдейт пересказы",
+      "notes": [
+        {
+          "path": "Апдейт/3 Компиляция/Ружья/Итоги 3 книга.md",
+          "customLabel": "Итоги 3 книга",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/4 Эмуляция/Ружья/Ружья (1).md",
+          "customLabel": "Ружья (1)",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/4 Эмуляция/Ружья/Ружья (2).md",
+          "customLabel": "Ружья (2)",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/4 Эмуляция/Ружья/Ружья (3).md",
+          "customLabel": "Ружья (3)",
+          "enabled": true,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/4 Эмуляция/Ружья/Ружья (4).md",
+          "customLabel": "Ружья (4)",
+          "enabled": true,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/4 Эмуляция/Ружья/Ружья (5).md",
+          "customLabel": "Ружья (5)",
+          "enabled": true,
+          "position": 5,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/4 Эмуляция/Ружья/Ружья (6).md",
+          "customLabel": "Ружья (6)",
+          "enabled": true,
+          "position": 6,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/4 Эмуляция/Ружья/Ружья (7).md",
+          "customLabel": "Ружья (7)",
+          "enabled": true,
+          "position": 7,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/Инструкции/Обобщение ружей.md",
+          "customLabel": "Обобщение ружей",
+          "enabled": true,
+          "position": 8,
+          "selectedReference": false
+        },
+        {
+          "path": "Апдейт/Инструкции/Инструкция пересказ.md",
+          "customLabel": "Инструкция пересказ",
+          "enabled": false,
+          "position": 9,
+          "selectedReference": false
+        }
+      ]
     }
   ],
   "activeReferenceSpaceId": 1755101190096,
   "viewActiveSpaces": {
-    "Мертвяк/Главы (new)/Глава 18 черновик.md": 1755101190096
+    "Апдейт/Инструкции/Инструкция пересказ.md": 1762482807008
   },
   "viewActiveModels": {
-    "Мертвяк/Главы (new)/Глава 18 черновик.md": "Gemini 2.5 Pro"
+    "Мертвяк/Персонажи/Ларс.md": "Gemini 2.5 Pro"
   },
   "viewActiveToolCategories": {
-    "Мертвяк/Главы (new)/Глава 18 черновик.md": {
+    "Мертвяк/Информация/Инструкция.md": {
+      "read": false,
+      "mutate": false,
+      "assistant": false
+    },
+    "Мертвяк/Персонажи/Ларс.md": {
       "read": false,
       "mutate": false,
       "assistant": false
