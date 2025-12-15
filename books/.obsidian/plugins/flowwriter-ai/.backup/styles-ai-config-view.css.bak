@@ -1,0 +1,788 @@
+/* =============================
+   AI Config View Styles
+   ============================= */
+
+.ai-config-view-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.ai-config-controls-container {
+  flex-shrink: 0;
+  padding: 8px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.ai-notes-list-outer-container {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-self: stretch;
+}
+
+.ai-config-model-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  padding: 0; /* Убираем отступы по бокам */
+  background: transparent;
+  box-sizing: border-box;
+  margin: 8px 0;
+}
+
+.ai-config-model-select {
+  width: 100%;
+  height: 36px;
+  color: var(--text-normal);
+  font-size: 0.95em;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
+  text-align: left; /* По умолчанию выравнивание по левому краю */
+  
+  /* Улучшенный эффект вдавленности */
+  background-color: var(--background-primary-alt, var(--background-secondary-alt));
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06), 
+              inset 0 0 2px rgba(0, 0, 0, 0.02);
+  padding: 0 12px;
+}
+
+/* Для выбранного значения — выравнивание по центру */
+.ai-config-model-select.center-selected {
+  text-align: center;
+}
+
+.ai-config-model-select:hover {
+  background-color: var(--background-primary);
+  border-color: var(--background-modifier-border-hover);
+}
+
+.ai-config-model-select:focus {
+  border-color: var(--interactive-accent);
+  background-color: var(--background-primary);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06),
+              0 0 0 2px var(--interactive-accent-hover, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2));
+}
+
+/* =============================
+ AI Config View Note Item Styles 
+============================= */
+
+.nav-buttons-container.ai-note-selector-controls {
+  flex-wrap: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--background-primary);
+}
+.ai-notes-list-items-container {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: 100%;
+  min-height: 0;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 4px; /* Добавляем равномерный отступ между элементами списка */
+}
+.empty-notes-list-message {
+  color: var(--text-muted);
+  padding: 16px 8px;
+  text-align: center;
+  font-style: italic;
+  margin-top: 16px;
+  border-radius: 6px;
+  background: transparent; /* Убираем белый фон */
+}
+.ai-note-item {
+  margin-bottom: 2px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+/* Убираем левые отступы от Obsidian по умолчанию */
+.ai-note-item.tree-item {
+  padding-left: 2px !important;
+  margin-left: 0 !important;
+}
+.ai-note-item .tree-item-self {
+  padding-left: 2px !important;
+  margin-left: 0 !important;
+}
+}
+.ai-note-item .nav-item-title-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  padding-left: 4px;
+}
+.ai-note-item .nav-item-content {
+  flex-shrink: 1;
+  min-width: 0;
+  flex-grow: 0;
+  padding: 4px 0;
+  border-radius: 4px;
+  /* Убираем временные границы */
+  /* border: 1px dashed yellow !important; */
+}
+.ai-note-item .nav-item-content svg {
+  flex-shrink: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Убираем левые отступы у всех элементов в навигации референсов */
+.ai-notes-list-items-container .nav-file,
+.ai-notes-list-items-container .nav-file-title,
+.ai-notes-list-items-container .nav-item-content {
+  padding-left: 2px !important;
+}
+
+/* Убираем отступы у обертки иконки, которую создает Obsidian */
+.ai-note-item .nav-item-content > *:first-child {
+  margin-left: 0 !important;
+  padding-left: 2px !important;
+}
+
+/* Убираем gap в начале контейнера, если первый элемент - иконка */
+.ai-note-item .nav-item-content {
+  padding-left: 2px !important;
+  margin-left: 0 !important;
+  margin-left: 0 !important;
+}
+.ai-note-item-label-editing {
+  background-color: var(--background-secondary-alt);
+  outline: 1px solid var(--interactive-accent);
+  border-radius: 3px;
+  padding: 2px 4px;
+  cursor: text;
+}
+.tree-item-self.is-selected {
+  outline: 1px solid var(--interactive-accent);
+  outline-offset: -1px;
+}
+.tree-item-self.is-active.is-selected {
+  outline: 1px solid var(--interactive-accent);
+  outline-offset: -1px;
+}
+
+/* Подсветка выбранных (is-selected), но не активных (без is-active) заметок как hover */
+.tree-item-self.is-selected:not(.is-active) {
+  outline: none;
+  background-color: var(--background-modifier-hover);
+}
+
+.ai-note-item .ai-note-item-remove-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  z-index: 1;
+  color: var(--text-muted);
+}
+.ai-note-item .ai-note-item-remove-button svg {
+  width: 10px;
+  height: 10px;
+}
+.ai-note-item .tree-item-self:hover .ai-note-item-remove-button {
+  display: block;
+}
+.ai-note-item .tree-item-self {
+  position: relative;
+  border-radius: 4px;
+}
+.ai-note-item .tree-item-self:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+/* Индикаторы перетаскивания */
+.ai-note-item .tree-item-self::before,
+.ai-note-item .tree-item-self::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ai-note-item .tree-item-self::before {
+  top: -1px;
+}
+
+.ai-note-item .tree-item-self::after {
+  bottom: -1px;
+}
+
+.ai-note-item .tree-item-self.drag-over-top::before {
+  background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
+}
+
+.ai-note-item .tree-item-self.drag-over-bottom::after {
+  background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
+}
+
+.ai-note-item .tree-item-self.drag-over-top::before,
+.ai-note-item .tree-item-self.drag-over-bottom::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
+  pointer-events: none;
+  z-index: 10;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.ai-note-item .tree-item-self.drag-over-top::before {
+  top: 0;
+  transform: translateY(-1px);
+}
+
+.ai-note-item .tree-item-self.drag-over-bottom::after {
+  bottom: 0;
+  transform: translateY(1px);
+}
+
+.ai-config-view-main-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0; 
+  align-self: stretch;
+  height: 100%;
+  box-sizing: border-box;
+}
+.fw-setting-control {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    max-width: 600px;
+    width: 100%;
+    justify-content: flex-end;
+}
+.fw-setting-toggle-container {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.fw-setting-input {
+  width: 60px;
+  text-align: right;
+  height: 32px;
+  border-radius: 6px;
+  /* Добавляем вдавленный стиль для инпутов */
+  background-color: var(--background-primary-alt, var(--background-secondary-alt));
+  border: 1px solid var(--background-modifier-border-hover, var(--background-modifier-border));
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08), 
+              inset 0 0 2px rgba(0, 0, 0, 0.04);
+  padding: 0 8px;
+  color: var(--text-normal);
+  transition: all 0.15s ease;
+}
+.fw-setting-input:focus {
+  border-color: var(--interactive-accent);
+  background-color: var(--background-primary);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06),
+              0 0 0 2px var(--interactive-accent-hover, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2));
+}
+.fw-setting-reset {
+  margin-left: 8px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fw-setting-reset-icon {
+  font-size: 18px;
+  color: var(--text-faint);
+}
+.fw-setting-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fw-setting-slider {
+  width: 100%; /* Занимает 100% ширины контейнера */
+  height: 4px;
+  margin: 0 16px; /* Увеличиваем отступы с боков слайдера */
+  flex-grow: 1; /* Добавляем свойство для растягивания */
+}
+.ai-config-prompt-buttons {
+  flex-shrink: 0;
+}
+.ai-config-nav-item,
+.ai-note-item .nav-item-content {
+  cursor: var(--cursor-pointer);
+}
+.ai-note-item .nav-item-content {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-1);
+  /* Убираем временные границы */
+  /* border: 1px dashed yellow !important; */
+}
+.ai-config-nav-item.is-disabled {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+.ai-config-nav-item:not(.is-disabled):hover {
+  background-color: var(--background-modifier-hover);
+}
+.ai-note-item .checkbox-container {
+  transform: scale(0.65);
+  margin-right: -4px;
+  vertical-align: middle;
+}
+
+/* =============================
+   AI Config View - Numbered Buttons
+   ============================= */
+
+.ai-config-number-button-framed {
+  border: 1px solid var(--background-modifier-border-hover);
+  border-radius: var(--radius-s);
+  padding: 2px 6px;
+  line-height: 1;
+  min-width: auto;
+  background-color: var(--background-secondary-alt);
+  color: var(--text-normal);
+  transition: all 0.15s ease;
+}
+
+.ai-config-number-button-framed:hover {
+  background-color: var(--background-modifier-hover);
+  border-color: var(--interactive-accent);
+  color: var(--text-accent);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.ai-config-number-button-framed:active {
+  transform: translateY(1px);
+}
+
+/* =====================================================
+   AI Config View - Unified Square Buttons in Header
+   ===================================================== */
+
+.ai-config-controls-container .clickable-icon {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+
+.ai-config-controls-container .clickable-icon svg {
+  width: var(--icon-s) !important;
+  height: var(--icon-s) !important;
+  min-width: var(--icon-s) !important;
+  min-height: var(--icon-s) !important;
+  max-width: var(--icon-s) !important;
+  max-height: var(--icon-s) !important;
+  /* ...existing code... */
+}
+
+/* Для надежности фиксируем размеры самих кнопок */
+.ai-config-controls-container .clickable-icon {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
+  /* ...existing code... */
+}
+
+.ai-config-controls-container .clickable-icon:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+/* Красная иконка для кнопки очистки референсного пространства (trash-2) при наведении */
+.ai-config-controls-container .clickable-icon:hover .lucide-trash-2 {
+  color: var(--color-red, #e24d4d);
+}
+
+.ai-config-controls-container .clickable-icon:active {
+  background-color: var(--background-modifier-active);
+  transform: translateY(1px);
+}
+
+.ai-config-controls-container .clickable-icon svg {
+  width: var(--icon-s);
+  height: var(--icon-s);
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.ai-config-controls-container .clickable-icon:hover svg {
+  color: var(--interactive-accent);
+}
+
+.ai-config-controls-container .ai-config-number-button-framed.clickable-icon {
+  font-size: calc(var(--font-ui-small) + 1px);
+  font-weight: 500;
+  display: flex;
+  width: auto;
+}
+
+/* Квадратная кнопка с цифрой */
+.ai-config-controls-container .ai-config-number-button-framed.clickable-icon {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  font-size: calc(var(--font-ui-small) + 1px);
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  color: var(--text-normal);
+  transition: background-color 0.15s ease, color 0.15s ease; /* Добавляем transition для цвета текста */
+}
+
+/* Стандартная подсветка фона для всех кнопок управления при наведении */
+.ai-config-controls-container .clickable-icon:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+/* Цвет иконки становится акцентным при наведении */
+.ai-config-controls-container .clickable-icon:hover svg {
+  color: var(--interactive-accent);
+}
+
+/* Добавляем стиль для текста кнопки с цифрой при наведении */
+.ai-config-controls-container .ai-config-number-button-framed.clickable-icon:hover {
+  color: var(--interactive-accent);
+}
+
+/* ======================================
+   AI Config View - ReferenceSpace Dropdown 
+   ====================================== */
+
+.ai-config-referenceSpaces-dropdown {
+    display: none;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    width: auto;
+    box-sizing: border-box;
+    
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    
+    padding: 8px;
+    max-height: 80vh; /* Увеличиваем максимальную высоту до 80% высоты окна */
+    overflow-y: auto;
+    font-family: var(--font-ui-normal);
+    
+    /* Добавляем анимацию появления */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    
+    /* Гарантируем, что выпадающее меню не перекрывает кнопки управления */
+    margin-top: 8px;
+}
+
+.ai-config-referenceSpaces-dropdown.is-open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ai-config-referenceSpaces-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    /* Убираем временные границы */
+    /* border: 1px dashed yellow !important; */
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.ai-config-referenceSpace-item,
+.ai-config-referenceSpace-create-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 4px; /* Меняем с 6px на 4px как у референсов */
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--font-ui-small);
+    line-height: var(--line-height-tight);
+    /* Заменяем границу на margin для визуального разделения */
+    margin-bottom: 2px;
+    /* Убираем временные границы */
+    /* border: 1px dashed yellow !important; */
+    transition: background-color 0.15s ease;
+}
+
+.ai-config-referenceSpace-item:last-child,
+.ai-config-referenceSpace-create-item:last-child {
+    margin-bottom: 0;
+}
+
+.ai-config-referenceSpace-item:hover,
+.ai-config-referenceSpace-create-item:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.ai-config-referenceSpace-item.is-active {
+    background-color: var(--background-modifier-active-hover);
+    font-weight: normal;
+    position: relative;
+    overflow: hidden;
+    outline: 1px solid var(--interactive-accent);
+    outline-offset: -1px;
+    /* Убираем несовместимые свойства */
+    border: none;
+    box-shadow: none;
+}
+
+.ai-config-referenceSpace-item-number {
+    border: 1px solid var(--background-modifier-border-hover);
+    border-radius: 4px;
+    padding: 2px 6px;
+    line-height: 1;
+    min-width: auto;
+    margin-right: 8px;
+    color: var(--text-muted);
+    font-size: var(--font-ui-smaller);
+    background-color: var (--background-secondary-alt);
+    font-weight: 500;
+}
+
+.ai-config-referenceSpace-item.is-active .ai-config-referenceSpace-item-number {
+    border-color: var(--interactive-accent);
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.ai-config-referenceSpace-name {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: var(--font-ui-normal);
+}
+
+.ai-config-referenceSpace-name-editing {
+    background-color: var(--background-modifier-form-field);
+    border-radius: 4px;
+    padding: 2px 6px;
+    box-shadow: 0 0 0 1px var(--interactive-accent);
+    outline: none;
+}
+
+.ai-config-referenceSpace-item-refcount {
+    margin-left: auto;
+    padding-left: 8px;
+    font-size: var(--font-ui-smaller);
+    color: var(--text-faint);
+    cursor: help;
+    background-color: var(--background-secondary-alt);
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+}
+
+.ai-config-referenceSpace-create-item {
+    color: var(--text-accent);
+    font-weight: 500;
+    border-top: 1px solid var(--background-modifier-border);
+    margin-top: 4px;
+    padding-top: 8px;
+}
+
+.ai-config-referenceSpace-create-item .clickable-icon {
+    margin-right: 8px;
+    color: var(--text-accent);
+    background-color: var(--background-primary-alt);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для Drag-and-Drop пространств референсов */
+.ai-config-referenceSpace-item.dragging {
+  opacity: 0.5;
+  background-color: var(--background-modifier-hover);
+}
+
+.ai-config-referenceSpace-item.drag-over {
+  background-color: var(--background-modifier-active);
+  box-shadow: 0 0 0 1px var(--interactive-accent);
+}
+
+/* Индикаторы для перетаскивания в списке референсных пространств */
+.ai-config-referenceSpace-item {
+  position: relative;
+}
+
+.ai-config-referenceSpace-item.dragging {
+  opacity: 0.5;
+}
+
+.ai-config-referenceSpace-item::before,
+.ai-config-referenceSpace-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ai-config-referenceSpace-item::before {
+  top: -1px;
+}
+
+.ai-config-referenceSpace-item::after {
+  bottom: -1px;
+}
+
+.ai-config-referenceSpace-item.drag-over-top::before {
+  background-color: var(--interactive-accent);
+}
+
+.ai-config-referenceSpace-item.drag-over-bottom::after {
+  background-color: var(--interactive-accent);
+}
+
+/* =============================
+   AI Config View - Active Space Title 
+   ============================= */
+
+.ai-config-active-space-title {
+  margin: 0; /* Убираем отступы сверху и снизу */
+  padding: 10px 12px;
+  font-weight: 500;
+  font-size: 0.94em;
+  color: var(--text-normal);
+  /* Убираем фон, рамку и тени */
+  background: transparent;
+  border-radius: 6px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Выравнивание по центру */
+  box-shadow: none;
+  border: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ai-config-active-space-title:hover {
+  background: transparent;
+  border-color: transparent;
+}
+
+.ai-config-active-space-title-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+  text-align: center; /* Дополнительное выравнивание текста по центру */
+  font-style: italic; /* Добавляем курсивный шрифт */
+}
+
+/* Красная иконка для удаления в меню */
+.ai-menu-delete-red {
+  color: var(--color-red, #e03131) !important;
+  fill: var(--color-red, #e03131) !important;
+}
+
+/* Иконка экспорта */
+.ai-menu-export-icon {
+  color: var(--color-orange, #f59f00);
+  fill: var(--color-orange, #f59f00);
+}
+
+/* ============================================
+   Стили для кнопки инструментов ИИ-соавтора
+   Переопределяют базовые стили clickable-icon
+   ============================================ */
+
+.ai-config-controls-container .ai-chat-tools-state-disabled svg {
+  color: var(--text-muted) !important;
+  opacity: 0.5;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-disabled:hover svg {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-read svg {
+  color: #4caf50 !important;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-read:hover svg {
+  color: #66bb6a !important;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-mutate svg {
+  color: #2196f3 !important;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-mutate:hover svg {
+  color: #42a5f5 !important;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-assistant svg {
+  color: #ffa726 !important;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-assistant:hover svg {
+  color: #ffb74d !important;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-both svg {
+  color: #9c27b0 !important;
+}
+
+.ai-config-controls-container .ai-chat-tools-state-both:hover svg {
+  color: #ab47bc !important;
+}

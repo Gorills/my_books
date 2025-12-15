@@ -1,0 +1,473 @@
+/**
+ * Стили для diff-визуализации изменений инструментов агента
+ * Стиль VS Code Copilot: блочное отображение строк
+ */
+
+/* ============================================ */
+/* Блочный виджет diff (VS Code style)         */
+/* ============================================ */
+
+/* Основной контейнер блочного виджета */
+.flowwriter-diff-block-widget {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 2px 0;
+  font-family: var(--font-monospace);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Блок с удалёнными строками (красный) */
+.flowwriter-diff-deleted-block {
+  background-color: rgba(255, 100, 100, 0.1);
+  border-left: 2px solid rgba(255, 100, 100, 0.6);
+  margin-left: -2px;
+}
+
+/* Строка внутри удалённого блока */
+.flowwriter-diff-deleted-line-content {
+  display: block;
+  padding: 0 8px;
+}
+
+/* Текст строки */
+.flowwriter-diff-line-text {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  opacity: 0.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ============================================ */
+/* Посимвольная подсветка (VS Code style)      */
+/* ============================================ */
+
+/* Удалённые символы в удалённой строке (более насыщенный красный) */
+.flowwriter-diff-char-deleted {
+  background-color: rgba(255, 80, 80, 0.35);
+  color: var(--text-muted);
+  text-decoration: line-through;
+  border-radius: 2px;
+}
+
+/* Неизменённые символы в удалённой строке (базовый стиль строки) */
+.flowwriter-diff-char-equal {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* Добавленные символы в добавленной строке (более насыщенный зелёный) */
+.flowwriter-diff-char-inserted {
+  background-color: rgba(80, 180, 80, 0.4) !important;
+  border-radius: 2px;
+}
+
+/* Подсветка добавленных строк в редакторе (зелёный) */
+.flowwriter-diff-added-line {
+  background-color: rgba(100, 200, 100, 0.1) !important;
+  border-left: 2px solid rgba(100, 200, 100, 0.6) !important;
+  margin-left: -2px;
+  padding-left: 2px;
+}
+
+/* Индикатор для insert-изменений (зелёный, компактный) */
+.flowwriter-diff-insert-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  background-color: rgba(100, 200, 100, 0.15);
+  border-left: 2px solid rgba(100, 200, 100, 0.6);
+  margin-left: -2px;
+  min-height: 20px;
+}
+
+.flowwriter-diff-insert-icon {
+  color: rgba(100, 200, 100, 0.9);
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.flowwriter-diff-insert-text {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  opacity: 0.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theme-dark .flowwriter-diff-insert-indicator {
+  background-color: rgba(100, 200, 100, 0.1);
+}
+
+.theme-dark .flowwriter-diff-insert-icon {
+  color: rgba(100, 200, 100, 0.8);
+}
+
+/* ============================================ */
+/* Inline кнопки (появляются при hover)        */
+/* ============================================ */
+
+.flowwriter-diff-inline-buttons {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.flowwriter-diff-block-widget:hover .flowwriter-diff-inline-buttons {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flowwriter-diff-inline-btn {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+  opacity: 0.85;
+}
+
+.flowwriter-diff-inline-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.flowwriter-diff-inline-accept {
+  background-color: rgba(100, 200, 100, 0.9);
+  color: white;
+}
+
+.flowwriter-diff-inline-reject {
+  background-color: rgba(255, 100, 100, 0.9);
+  color: white;
+}
+
+/* ============================================ */
+/* Кнопки управления (для summary)             */
+/* ============================================ */
+
+/* Базовые стили кнопок */
+.flowwriter-diff-button {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Кнопка "Принять" */
+.flowwriter-diff-accept {
+  background-color: rgba(100, 200, 100, 0.9);
+  color: #ffffff;
+}
+
+.flowwriter-diff-accept:hover {
+  background-color: rgba(80, 180, 80, 1);
+  transform: translateY(-1px);
+}
+
+/* Кнопка "Откатить" */
+.flowwriter-diff-reject {
+  background-color: rgba(255, 100, 100, 0.9);
+  color: #ffffff;
+}
+
+.flowwriter-diff-reject:hover {
+  background-color: rgba(220, 80, 80, 1);
+  transform: translateY(-1px);
+}
+
+/* ============================================ */
+/* Темная тема                                 */
+/* ============================================ */
+
+.theme-dark .flowwriter-diff-deleted-block {
+  background-color: rgba(255, 100, 100, 0.08);
+  border-left-color: rgba(255, 100, 100, 0.5);
+}
+
+.theme-dark .flowwriter-diff-line-text {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* Посимвольная подсветка в тёмной теме */
+.theme-dark .flowwriter-diff-char-deleted {
+  background-color: rgba(255, 80, 80, 0.3);
+}
+
+.theme-dark .flowwriter-diff-char-equal {
+  opacity: 0.6;
+}
+
+.theme-dark .flowwriter-diff-char-inserted {
+  background-color: rgba(80, 180, 80, 0.35) !important;
+}
+.theme-dark .flowwriter-diff-added-line {
+  background-color: rgba(100, 200, 100, 0.08) !important;
+  border-left-color: rgba(100, 200, 100, 0.5) !important;
+}
+
+/* ============================================ */
+/* Summary виджет V2 (glassmorphism iOS style) */
+/* ============================================ */
+
+/* Контейнер для sticky summary */
+.flowwriter-diff-summary-sticky-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 8px;
+  pointer-events: none;
+}
+
+.flowwriter-diff-summary-v2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
+  margin: 0;
+  /* Glassmorphism effect - iOS frosted glass style */
+  background: linear-gradient(
+    135deg,
+    rgba(var(--interactive-accent-rgb, 72, 128, 255), 0.65) 0%,
+    rgba(var(--interactive-accent-rgb, 72, 128, 255), 0.45) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  font-family: var(--font-interface);
+  font-size: 0.85em;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  pointer-events: auto;
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+/* Fallback для браузеров без поддержки backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .flowwriter-diff-summary-v2 {
+    background: rgba(var(--interactive-accent-rgb, 72, 128, 255), 0.85);
+  }
+}
+
+.flowwriter-diff-summary-v2:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--interactive-accent-rgb, 72, 128, 255), 0.75) 0%,
+    rgba(var(--interactive-accent-rgb, 72, 128, 255), 0.55) 100%
+  );
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.flowwriter-diff-summary-v2 .flowwriter-diff-summary-text {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9em;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Контейнер для всех элементов справа (счетчик, стрелки, кнопки) */
+.flowwriter-diff-summary-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* Кнопки навигации */
+.flowwriter-diff-nav-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.flowwriter-diff-nav-button {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.flowwriter-diff-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+
+/* Счетчик навигации */
+.flowwriter-diff-counter {
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  opacity: 0.95;
+  padding: 0;
+  white-space: nowrap;
+  min-width: 35px;
+  text-align: center;
+  flex-shrink: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Кнопки действий в summary V2 */
+.flowwriter-diff-summary-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.flowwriter-diff-summary-right .flowwriter-diff-button {
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.flowwriter-diff-summary-right .flowwriter-diff-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.flowwriter-diff-summary-right .flowwriter-diff-accept {
+  background-color: rgba(100, 200, 100, 0.7);
+  border-color: rgba(100, 200, 100, 0.8);
+  box-shadow: 0 2px 6px rgba(100, 200, 100, 0.25);
+}
+
+.flowwriter-diff-summary-right .flowwriter-diff-accept:hover {
+  background-color: rgba(100, 200, 100, 0.85);
+  box-shadow: 0 3px 8px rgba(100, 200, 100, 0.35);
+}
+
+.flowwriter-diff-summary-right .flowwriter-diff-reject {
+  background-color: rgba(255, 100, 100, 0.7);
+  border-color: rgba(255, 100, 100, 0.8);
+  box-shadow: 0 2px 6px rgba(255, 100, 100, 0.25);
+}
+
+.flowwriter-diff-summary-right .flowwriter-diff-reject:hover {
+  background-color: rgba(255, 100, 100, 0.85);
+  box-shadow: 0 3px 8px rgba(255, 100, 100, 0.35);
+}
+
+/* Адаптивность для узких контейнеров */
+@container (max-width: 400px) {
+  .flowwriter-diff-summary-v2 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .flowwriter-diff-summary-right {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+/* Резервная адаптивность через media query */
+.flowwriter-diff-summary-v2:has(.flowwriter-diff-summary-right) {
+  container-type: inline-size;
+}
+
+/* Принудительный перенос при переполнении */
+.flowwriter-diff-summary-v2 {
+  min-width: 0;
+}
+
+/* Скрытие текста при очень узком контейнере */
+@media (max-width: 350px) {
+  .flowwriter-diff-summary-v2 .flowwriter-diff-summary-text {
+    display: none;
+  }
+}
+
+/* Dark theme adjustments for glassmorphism */
+.theme-dark .flowwriter-diff-summary-v2 {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    0 1px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.theme-dark .flowwriter-diff-summary-v2:hover {
+  box-shadow: 
+    0 6px 24px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}

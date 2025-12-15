@@ -10,7 +10,7 @@
   "referenceNotesFolder": "",
   "hideMarkdownStyles": false,
   "referenceIncludeSubfolders": true,
-  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjY2ExZDg2My1iNDhhLTRlYjYtODY4My0zYmRlYmM3Zjk0MTEiLCJlbWFpbCI6Imdvcml2YW5pY2tpeUBnbWFpbC5jb20iLCJpYXQiOjE3NjI0ODQwNjcsImV4cCI6MTc2MzA4ODg2N30.lvjjaKghGVCijI9TJMlM8iboKtxwNUC4XBg0JVNnBaE",
+  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjY2ExZDg2My1iNDhhLTRlYjYtODY4My0zYmRlYmM3Zjk0MTEiLCJlbWFpbCI6Imdvcml2YW5pY2tpeUBnbWFpbC5jb20iLCJpYXQiOjE3NjQyMDk1NjgsImV4cCI6MTc2NDgxNDM2OH0.qHhWp36dHOLPP9oxmKnQAyR7vzHVyU4y_nyfac0xMXs",
   "userEmail": "gorivanickiy@gmail.com",
   "referenceSpaces": [
     {
@@ -54,38 +54,45 @@
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Пересказы/Глава 16 пересказ.md",
-          "customLabel": "Глава 16 пересказ",
+          "path": "Мертвяк/Пересказы/Глава 20 пересказ.md",
+          "customLabel": "Глава 20 пересказ",
           "enabled": true,
           "position": 5,
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Главы (new)/Глава 17 финал.md",
-          "customLabel": "Глава 17 финал",
+          "path": "Мертвяк/Пересказы/Глава 21 пересказ.md",
+          "customLabel": "Глава 21 пересказ",
           "enabled": true,
           "position": 6,
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Сюжет/Глава 18 сюжет.md",
-          "customLabel": "Глава 18 сюжет",
+          "path": "Мертвяк/Главы (new)/Книга 1/Глава 22 финал.md",
+          "customLabel": "Глава 22 финал",
           "enabled": true,
           "position": 7,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Сюжет/Книга 2/Глава 1 сюжет.md",
+          "customLabel": "Глава 1 сюжет",
+          "enabled": true,
+          "position": 8,
           "selectedReference": false
         },
         {
           "path": "Мертвяк/Информация/Короткая инструкция.md",
           "customLabel": "Короткая инструкция",
           "enabled": false,
-          "position": 8,
+          "position": 9,
           "selectedReference": false
         },
         {
           "path": "Мертвяк/Информация/Инструкция.md",
           "customLabel": "Инструкция",
           "enabled": true,
-          "position": 9,
+          "position": 10,
           "selectedReference": false
         }
       ]
@@ -96,8 +103,8 @@
       "name": "Пересказы мертвяк",
       "notes": [
         {
-          "path": "Мертвяк/Главы (new)/Глава 17 финал.md",
-          "customLabel": "Глава 17 финал",
+          "path": "Мертвяк/Главы (new)/Книга 1/Глава 22 финал.md",
+          "customLabel": "Глава 22 финал",
           "enabled": true,
           "position": 0,
           "selectedReference": false
@@ -166,71 +173,71 @@
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Пересказы/Глава 11 пересказ.md",
-          "customLabel": "Глава 11 пересказ",
+          "path": "Мертвяк/Пересказы/Глава 18 пересказ.md",
+          "customLabel": "Глава 18 пересказ",
           "enabled": true,
           "position": 7,
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Пересказы/Глава 12 пересказ.md",
-          "customLabel": "Глава 12 пересказ",
+          "path": "Мертвяк/Пересказы/Глава 19 пересказ.md",
+          "customLabel": "Глава 19 пересказ",
           "enabled": true,
           "position": 8,
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Пересказы/Глава 13 пересказ.md",
-          "customLabel": "Глава 13 пересказ",
+          "path": "Мертвяк/Пересказы/Глава 20 пересказ.md",
+          "customLabel": "Глава 20 пересказ",
           "enabled": true,
           "position": 9,
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Пересказы/Глава 14 пересказ.md",
-          "customLabel": "Глава 14 пересказ",
+          "path": "Мертвяк/Пересказы/Глава 21 пересказ.md",
+          "customLabel": "Глава 21 пересказ",
           "enabled": true,
           "position": 10,
           "selectedReference": false
         },
         {
-          "path": "Мертвяк/Пересказы/Глава 15 пересказ.md",
-          "customLabel": "Глава 15 пересказ",
+          "path": "Мертвяк/Главы (new)/Книга 1/Глава 22 финал.md",
+          "customLabel": "Глава 22 финал",
           "enabled": true,
           "position": 11,
-          "selectedReference": false
-        },
-        {
-          "path": "Мертвяк/Пересказы/Глава 16 пересказ.md",
-          "customLabel": "Глава 16 пересказ",
-          "enabled": true,
-          "position": 12,
-          "selectedReference": false
-        },
-        {
-          "path": "Мертвяк/Главы (new)/Глава 17 финал.md",
-          "customLabel": "Глава 17 финал",
-          "enabled": true,
-          "position": 13,
           "selectedReference": false
         },
         {
           "path": "Мертвяк/Сюжет/Фрактальная структура.md",
           "customLabel": "Фрактальная структура",
           "enabled": true,
-          "position": 14,
+          "position": 12,
           "selectedReference": false
         },
         {
           "path": "Мертвяк/Сюжет/Наброски (общее).md",
           "customLabel": "Наброски (общее)",
-          "enabled": false,
-          "position": 15,
+          "enabled": true,
+          "position": 13,
           "selectedReference": false
         },
         {
           "path": "Мертвяк/Сюжет/Наброски по текущей главе.md",
           "customLabel": "Наброски по текущей главе",
+          "enabled": false,
+          "position": 14,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Пересказы/Инструкция (варианты).md",
+          "customLabel": "Инструкция (варианты)",
+          "enabled": false,
+          "position": 15,
+          "selectedReference": false
+        },
+        {
+          "path": "Мертвяк/Сюжет/Инструкция для полной книги.md",
+          "customLabel": "Инструкция для полной книги",
           "enabled": true,
           "position": 16,
           "selectedReference": false
@@ -238,7 +245,7 @@
         {
           "path": "Мертвяк/Сюжет/Инструкция.md",
           "customLabel": "Инструкция",
-          "enabled": true,
+          "enabled": false,
           "position": 17,
           "selectedReference": false
         }
@@ -551,15 +558,10 @@
     "Апдейт/Инструкции/Инструкция пересказ.md": 1762482807008
   },
   "viewActiveModels": {
-    "Мертвяк/Персонажи/Ларс.md": "Gemini 2.5 Pro"
+    "Мертвяк/Главы (new)/Книга 2/Глава 1 черновик.md": "Gemini 2.5 Pro"
   },
   "viewActiveToolCategories": {
-    "Мертвяк/Информация/Инструкция.md": {
-      "read": false,
-      "mutate": false,
-      "assistant": false
-    },
-    "Мертвяк/Персонажи/Ларс.md": {
+    "Мертвяк/Главы (new)/Книга 2/Глава 1 черновик.md": {
       "read": false,
       "mutate": false,
       "assistant": false
