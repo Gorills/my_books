@@ -538,6 +538,7 @@
     gap: 8px;
     padding: 8px 12px 8px 8px;
     transition: border-color 0.15s ease;
+    overflow: hidden;
 }
 
 /* Панель промптов в чате */
@@ -557,38 +558,127 @@
     align-items: center;
     gap: 8px;
     padding: 0 4px;
+    min-width: 0;
+    flex-shrink: 1;
 }
 
-/* Кнопка выбора референсного пространства */
+/* Кнопка выбора референсного пространства (адаптивная: иконка или текст) */
 .ai-chat-reference-space-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ai-chat-reference-space-btn:hover {
+    background: var(--background-modifier-hover);
+}
+
+/* Режим символа (когда не выбрано пространство) */
+.ai-chat-reference-space-btn.is-icon-mode {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+}
+
+.ai-chat-reference-space-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.ai-chat-reference-space-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ai-chat-reference-space-btn.is-icon-mode:hover .ai-chat-reference-space-icon svg {
+    color: var(--interactive-accent);
+}
+
+/* Режим текста (когда выбрано пространство) */
+.ai-chat-reference-space-btn.is-selected {
     padding: 4px 10px;
     background: var(--background-modifier-form-field);
     border: 1px solid var(--background-modifier-border);
     border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
     font-size: 13px;
     max-width: 250px;
+    min-width: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-shrink: 1;
+    justify-content: flex-start;
 }
 
-.ai-chat-reference-space-btn:hover {
+.ai-chat-reference-space-btn.is-selected:hover {
     background: var(--background-modifier-hover);
     border-color: var(--interactive-accent);
 }
 
 .ai-chat-reference-space-text {
-    color: var(--text-muted);
+    color: var(--interactive-accent);
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    flex-shrink: 1;
 }
 
-.ai-chat-reference-space-btn:hover .ai-chat-reference-space-text {
-    color: var(--text-normal);
+.ai-chat-reference-space-btn.is-selected:hover .ai-chat-reference-space-text {
+    color: var(--interactive-accent);
+}
+
+/* Кнопка выбора рабочей директории (иконка) */
+.ai-chat-working-dir-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ai-chat-working-dir-btn:hover {
+    background: var(--background-modifier-hover);
+}
+
+/* Иконка папки */
+.ai-chat-working-dir-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.ai-chat-working-dir-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ai-chat-working-dir-btn:hover .ai-chat-working-dir-icon svg {
+    color: var(--interactive-accent);
+}
+
+/* Состояние: выбрана нестандартная директория (акцентный цвет) */
+.ai-chat-working-dir-btn.is-selected .ai-chat-working-dir-icon svg {
+    color: var(--interactive-accent);
+}
+
+.ai-chat-working-dir-btn.is-selected {
+    background: transparent;
+}
+
+.ai-chat-working-dir-btn.is-selected:hover {
+    background: var(--background-modifier-hover);
 }
 
 /* Кнопка-переключатель промптов */
@@ -602,6 +692,7 @@
     cursor: pointer;
     color: var(--text-muted);
     transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
 .ai-chat-prompts-toggle-btn:hover {
@@ -615,6 +706,19 @@
 .ai-chat-prompts-toggle-btn svg {
     width: 16px;
     height: 16px;
+}
+
+/* Состояние: библиотека промптов открыта (акцентный цвет) */
+.ai-chat-prompts-toggle-btn.is-active svg {
+    color: var(--interactive-accent);
+}
+
+.ai-chat-prompts-toggle-btn.is-active {
+    background: transparent;
+}
+
+.ai-chat-prompts-toggle-btn.is-active:hover {
+    background: var(--background-modifier-hover);
 }
 
 .ai-chat-prompts-panel .ai-modal-prompts-container {
@@ -647,8 +751,9 @@
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    flex-shrink: 0;
+    flex-shrink: 1;
     width: 100%;
+    min-width: 0;
     min-height: 24px;
 }
 
@@ -657,7 +762,8 @@
     flex-direction: row;
     gap: 8px;
     align-items: center;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
 }
 
 .ai-chat-input-buttons {
@@ -969,7 +1075,8 @@
 .ai-chat-selector {
     position: relative;
     display: inline-block;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 80px;
 }
 
 .ai-chat-selector-button {
@@ -1012,22 +1119,24 @@
 }
 
 .ai-chat-selector-dropdown {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
+    position: fixed;
+    bottom: auto;
+    left: auto;
     margin-bottom: 4px;
     background: var(--background-primary);
     border: 1px solid var(--background-modifier-border);
     border-radius: 6px;
     box-shadow: var(--shadow-s);
-    z-index: 1001;
-    min-width: 120px;
-    max-height: 400px;
+    z-index: 10000;
+    min-width: 200px;
+    width: max-content;
+    max-width: 400px;
+    max-height: 270px;
     overflow-y: auto;
     display: none;
 }
 
-.ai-chat-selector-open .ai-chat-selector-dropdown {
+.ai-chat-selector-dropdown.ai-chat-selector-open {
     display: block;
 }
 
@@ -1037,6 +1146,17 @@
     font-size: 12px;
     color: var(--text-normal);
     transition: background-color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.ai-chat-selector-option-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ai-chat-selector-option:hover {
@@ -1049,6 +1169,47 @@
 
 .ai-chat-selector-option:last-child {
     border-radius: 0 0 6px 6px;
+}
+
+/* Звездочка избранного в селекторе чата */
+.ai-chat-selector-star {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.ai-chat-selector-star:hover {
+    opacity: 1;
+}
+
+.ai-chat-selector-star.is-favorite {
+    opacity: 1;
+    color: var(--interactive-accent);
+}
+
+.ai-chat-selector-star.is-favorite svg {
+    fill: var(--interactive-accent);
+}
+
+.ai-chat-selector-star.not-favorite:hover {
+    color: var(--interactive-accent);
+}
+
+.ai-chat-selector-star.not-favorite:hover svg {
+    fill: var(--interactive-accent);
+}
+
+/* Разделитель между избранными и остальными моделями */
+.ai-chat-selector-separator {
+    height: 1px;
+    background: var(--background-modifier-border);
+    margin: 4px 8px;
 }
 
 
@@ -1238,6 +1399,47 @@
     width: 100%;
 }
 
+/* Embedded media styles */
+
+/* Скрываем текстовое содержимое internal-embed элементов в чате */
+.ai-chat-message-text .internal-embed {
+    display: block;
+}
+
+.ai-chat-embedded-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0.5em 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: block;
+}
+
+.ai-chat-embedded-image:hover {
+    opacity: 0.9;
+}
+
+.ai-chat-embedded-pdf {
+    width: 100%;
+    height: 600px;
+    margin: 0.5em 0;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+}
+
+.ai-chat-embedded-audio {
+    width: 100%;
+    margin: 0.5em 0;
+}
+
+.ai-chat-embedded-video {
+    max-width: 100%;
+    height: auto;
+    margin: 0.5em 0;
+    border-radius: 8px;
+}
+
 .ai-chat-message-text table th,
 .ai-chat-message-text table td {
     border: 1px solid var(--table-border-color, var(--background-modifier-border));
@@ -1262,6 +1464,70 @@
 .ai-chat-message-text .markdown-preview-section {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+/* === Стилизация кнопок копирования кодовых блоков === */
+/* Позиционирование pre блока и добавление пустых строк сверху/снизу */
+.ai-chat-message-text pre {
+    position: relative !important;
+    padding-top: 2em !important;
+    padding-bottom: 1em !important;
+}
+
+/* Стилизация кнопки копирования - соответствует нативному стилю */
+
+
+.ai-chat-message-text .copy-code-button {
+    position: absolute !important;
+    top: 6px !important;
+    right: 6px !important;
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 3px !important;
+    /* make fully borderless and remove visual artifacts */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    opacity: 1 !important;
+    transition: background 0.15s ease !important;
+    cursor: pointer !important;
+}
+
+.ai-chat-message-text .copy-code-button::before,
+.ai-chat-message-text .copy-code-button::after {
+    content: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.ai-chat-message-text .copy-code-button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Hover эффект для кнопки - легкое затемнение */
+.ai-chat-message-text .copy-code-button:hover {
+    background: rgba(var(--mono-rgb-100), 0.06) !important; /* subtle hover but still borderless */
+    box-shadow: none !important;
+}
+
+/* Иконка внутри кнопки - заполняет всю кнопку */
+.ai-chat-message-text .copy-code-button svg {
+    width: 16px !important; /* match button size */
+    height: 16px !important; /* match button size */
+    color: var(--text-muted) !important;
+    opacity: 0.95 !important;
+    stroke-width: 1.5 !important; /* keep icon slightly bolder for clarity */
+}
+
+/* Цвет иконки при наведении - легкое увеличение непрозрачности */
+.ai-chat-message-text .copy-code-button:hover svg {
+    opacity: 1 !important;
 }
 
 .ai-chat-add-empty-button {
@@ -1644,35 +1910,59 @@
     color: #ffb74d;
 }
 
-/* Состояние: только оркестрация - оранжевая */
+/* Состояние: только оркестрация - красная */
 .ai-chat-tools-state-orchestration svg {
-    color: #ff6f00;
+    color: #f44336;
 }
 
 .ai-chat-tools-state-orchestration:hover svg {
-    color: #ff8f00;
+    color: #e53935;
 }
 
-/* Состояние: все включено - фиолетовая */
-.ai-chat-tools-state-both svg {
+/* Состояние: только workflows - фиолетовая */
+.ai-chat-tools-state-workflow svg {
     color: #9c27b0;
 }
 
+.ai-chat-tools-state-workflow:hover svg {
+    color: #ba68c8;
+}
+
+/* Состояние: все включено - акцентный цвет темы */
+.ai-chat-tools-state-both svg {
+    color: var(--interactive-accent);
+}
+
 .ai-chat-tools-state-both:hover svg {
-    color: #ab47bc;
+    color: var(--interactive-accent-hover);
 }
 
 /* Выпадающее меню выбора категорий функций ИИ-соавтора */
 .ai-chat-tools-dropdown {
+    position: absolute;
+    bottom: 100%;
+    left: 4px;
+    right: 4px;
+    transform: translateY(12px);
+    z-index: 1000;
     background: var(--background-secondary);
     border: 1px solid var(--background-modifier-border);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 12px;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    /* Динамическая высота - без maxHeight и overflow */
+    max-height: none;
+    overflow: visible;
 }
 
 /* Класс is-open для анимации появления */
 .ai-chat-tools-dropdown.is-open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
     animation: fadeIn 0.15s ease-in-out;
 }
 
@@ -1778,113 +2068,29 @@
     color: var(--text-muted);
     line-height: 1.4;
 }
-/* === Кнопки фоновых сессий === */
 
-/* Контейнер для кнопок */
-.ai-chat-bg-buttons-container {
-    display: flex;
-    gap: 4px;
-    align-items: center;
+/* Состояние: только контекст - циан */
+.ai-chat-tools-state-context svg {
+    color: #00bcd4;
 }
 
-/* Отдельная кнопка фоновой сессии */
-.ai-chat-bg-session-button {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    cursor: pointer;
-    background: transparent;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
+.ai-chat-tools-state-context:hover svg {
+    color: #26c6da;
 }
 
-/* Состояние: генерация в процессе */
-.ai-chat-bg-session-button.is-generating {
-    background: var(--interactive-accent);
+/* Состояние: только генерация изображений - глубокий фиолетовый */
+.ai-chat-tools-state-image svg {
+    color: #673ab7;
 }
 
-.ai-chat-bg-session-button.is-generating:hover {
-    background: var(--interactive-accent-hover);
-    transform: translateY(-1px);
+.ai-chat-tools-state-image:hover svg {
+    color: #7e57c2;
 }
 
-/* Состояние: генерация завершена (с рамкой) */
-.ai-chat-bg-session-button.is-completed {
-    background: transparent;
-    border: 2px solid var(--interactive-accent);
+/* Generated images from OpenRouter image models */
+.fw-generated-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 8px 0;
+    display: block;
 }
-
-.ai-chat-bg-session-button.is-completed:hover {
-    background: var(--background-modifier-hover);
-    border-color: var(--interactive-accent-hover);
-    transform: translateY(-1px);
-}
-
-/* Иконка внутри кнопки */
-.ai-chat-bg-session-icon {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Анимация вращения для активной генерации */
-.ai-chat-bg-session-button.is-generating .ai-chat-bg-session-icon svg {
-    width: 12px;
-    height: 12px;
-    color: var(--text-on-accent);
-    animation: spinLoader 1.5s linear infinite;
-}
-
-@keyframes spinLoader {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Иконка для завершенной генерации */
-.ai-chat-bg-session-button.is-completed .ai-chat-bg-session-icon svg {
-    width: 12px;
-    height: 12px;
-    color: var(--interactive-accent);
-}
-
-/* Порядковый номер */
-.ai-chat-bg-session-number {
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    min-width: 14px;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 7px;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 0 3px;
-}
-
-/* Номер для активной генерации */
-.ai-chat-bg-session-button.is-generating .ai-chat-bg-session-number {
-    background: var(--background-primary);
-    color: var(--interactive-accent);
-    border: 1px solid var(--interactive-accent);
-}
-
-/* Номер для завершенной генерации */
-.ai-chat-bg-session-button.is-completed .ai-chat-bg-session-number {
-    background: var(--interactive-accent);
-    color: var(--text-on-accent);
-    border: 1px solid var(--interactive-accent);
-}
-

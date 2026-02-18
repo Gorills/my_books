@@ -185,6 +185,12 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
 }
 
+/* Стилизация выпадающего списка элементов для темной темы */
+.ai-stats-filter-select option {
+    background-color: var(--background-primary);
+    color: var(--text-normal);
+}
+
 /* Стрелка для выпадающего списка */
 .ai-select-arrow {
     position: absolute;
@@ -254,12 +260,12 @@
 .ai-stats-filter-select-users:hover,
 .ai-stats-filter-select-models:hover,
 .ai-stats-filter-select-periods:hover {
-    background: var(--background-modifier-hover);
+    background-color: var(--background-modifier-hover);
     border-color: var(--background-modifier-border-hover);
 }
 
 .ai-dropdown-option:hover {
-    background: var(--background-modifier-hover);
+    background-color: var(--background-modifier-hover);
 }
 
 .ai-stats-filter-select:focus {
@@ -651,9 +657,74 @@
     margin: 40px 0;
 }
 
+/* Правая ось Y для расходов */
+.ai-chart-y-axis-right {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    bottom: calc(60px * var(--stats-modal-scale-height));
+    width: calc(60px * var(--stats-modal-scale-width));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 0 0 8px;
+    border-left: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.ai-chart-y-label-cost {
+    color: #4ade80;
+    font-weight: 500;
+}
+
+/* SVG линия расходов */
+.ai-chart-cost-line-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ai-chart-cost-line {
+    stroke: #4ade80;
+    stroke-width: 2.5;
+    fill: none;
+    filter: drop-shadow(0 0 3px rgba(74, 222, 128, 0.4));
+}
+
+.ai-chart-cost-point {
+    fill: #4ade80;
+    stroke: none;
+}
+
+/* Адаптация диаграммы для правой оси */
+.ai-chart {
+    grid-template-columns: calc(60px * var(--stats-modal-scale-width)) 1fr calc(60px * var(--stats-modal-scale-width));
+}
+
+.ai-chart-x-axis {
+    grid-column: 2;
+}
+
 /* Темная тема */
 .theme-dark .ai-stats-modal {
     background: var(--background-primary);
+}
+
+/* Светлые иконки для темной темы в селекторах */
+.theme-dark .ai-stats-filter-select-users {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23bbb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+.theme-dark .ai-stats-filter-select-models {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23bbb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E");
+}
+
+.theme-dark .ai-stats-filter-select-periods {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23bbb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
 }
 
 .theme-dark .ai-dropdown-content {
@@ -1255,6 +1326,47 @@
     min-width: 240px;
 }
 
+/* Ячейка баланса */
+.ai-admin-cell-balance {
+    min-width: 100px;
+    text-align: center;
+}
+
+.ai-admin-th-balance {
+    min-width: 100px;
+    text-align: center;
+}
+
+.ai-admin-balance-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.ai-admin-balance-input {
+    width: 70px;
+    padding: 4px 6px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-size: 0.9em;
+    text-align: right;
+}
+
+.ai-admin-balance-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px rgba(var(--interactive-accent-rgb), 0.2);
+}
+
+.ai-admin-balance-currency {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
 .ai-admin-subscription-container {
     display: flex;
     flex-direction: column;
@@ -1435,58 +1547,59 @@
 
 /* Адаптивность для маленьких экранов */
 @media (max-width: 768px) {
+
     /* Админ-панель */
     .ai-admin-panel-modal {
         width: 100% !important;
         height: 100% !important;
     }
-    
+
     .ai-admin-limits-content {
         flex-direction: column;
         gap: 16px;
     }
-    
+
     .ai-admin-user-header {
         flex-direction: column;
         gap: 12px;
     }
-    
+
     .ai-admin-stats {
         flex-direction: column;
         gap: 8px;
     }
-    
+
     .ai-admin-access-level {
         flex-wrap: wrap;
         gap: 12px;
     }
-    
+
     .ai-admin-search-row {
         flex-direction: column;
         gap: 12px;
     }
-    
+
     .ai-admin-sort-row {
         flex-wrap: wrap;
     }
-    
+
     /* Модальное окно статистики */
     .ai-stats-modal {
         padding: 16px;
     }
-    
+
     .ai-stats-filters {
         gap: calc(16px * var(--stats-modal-scale-width));
     }
-    
+
     .ai-stats-cards {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .ai-chart {
         height: calc(250px * var(--stats-modal-scale-height));
     }
-    
+
     .ai-chart-label {
         font-size: 0.7em;
     }
@@ -1501,4 +1614,3 @@
     background: var(--background-secondary);
     border-color: var(--background-modifier-border);
 }
-

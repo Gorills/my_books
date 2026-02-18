@@ -1,16 +1,21 @@
 {
   "serverUrl": "http://91.200.148.125:3000",
-  "selectedModelName": "Gemini 2.5 Pro",
+  "selectedModelName": "Claude Sonnet 4.5 (до 30к слов)",
   "chatSelectedModelName": "Default User Model",
+  "imageGenerationModel": "",
+  "imageAspectRatio": "1:1",
+  "imageResolution": "1K",
+  "imagesFolder": "FlowWriter-ai Images",
   "chatModeModels": {},
   "lastSelectedChatMode": "Обсуждение",
   "temperature": 0.7,
   "maxTokens": 16000,
+  "thinkingTokens": 0,
   "replacePrompt": "Инструкция:\nОтредактируй текст в тегах отрывка <отрывок>...</отрывок> в соответствии с дополнительными инструкциями пользователя.\nЕсли дополнительные инструкции не предоставлены, то просто отредактируй его, стараясь сделать лучше. \nВ ответе пиши только исправленный текст, который заменит предыдущий. \n**Теги отрывка указывать запрещено!**\n\n<отрывок>{{selected_text}}</отрывок>\n\n## Дополнительные инструкции для редактирования, если они доступны (игнорируйте, если не найдены):\n\n{{user_input}}",
   "referenceNotesFolder": "",
   "hideMarkdownStyles": false,
   "referenceIncludeSubfolders": true,
-  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjY2ExZDg2My1iNDhhLTRlYjYtODY4My0zYmRlYmM3Zjk0MTEiLCJlbWFpbCI6Imdvcml2YW5pY2tpeUBnbWFpbC5jb20iLCJpYXQiOjE3NjQyMDk1NjgsImV4cCI6MTc2NDgxNDM2OH0.qHhWp36dHOLPP9oxmKnQAyR7vzHVyU4y_nyfac0xMXs",
+  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjY2ExZDg2My1iNDhhLTRlYjYtODY4My0zYmRlYmM3Zjk0MTEiLCJlbWFpbCI6Imdvcml2YW5pY2tpeUBnbWFpbC5jb20iLCJpYXQiOjE3NzA0NzMyMzIsImV4cCI6MTc3MTA3ODAzMn0.E2Pzng_qFwdLXMlgCyuRdlqAAEeWBOTbFjDflj3HxQw",
   "userEmail": "gorivanickiy@gmail.com",
   "referenceSpaces": [
     {
@@ -551,23 +556,198 @@
           "selectedReference": false
         }
       ]
+    },
+    {
+      "id": 1770518199860,
+      "number": 8,
+      "name": "УСЯ - писатель",
+      "notes": [
+        {
+          "path": "Уся/Писатель/Роль.md",
+          "customLabel": "Роль",
+          "enabled": false,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Редактор/Роль редактор.md",
+          "customLabel": "Роль редактор",
+          "enabled": false,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Писатель/Стиль.md",
+          "customLabel": "Стиль",
+          "enabled": false,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Наброски/Концепт.md",
+          "customLabel": "Концепт",
+          "enabled": false,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Готовое/Глава 1 - неред..md",
+          "customLabel": "Глава 1 - неред.",
+          "enabled": false,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Писатель/ЧЁТКАЯ ПОШАГОВАЯ ИНСТРУКЦИЯ ДЛЯ РЕДАКТОРА.md",
+          "customLabel": "ЧЁТКАЯ ПОШАГОВАЯ ИНСТРУКЦИЯ ДЛЯ РЕДАКТОРА",
+          "enabled": true,
+          "position": 5,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1770528495326,
+      "number": 9,
+      "name": "УСЯ - редактор",
+      "notes": [
+        {
+          "path": "Уся/Редактор/Роль редактор.md",
+          "customLabel": "Роль редактор",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Писатель/Стиль.md",
+          "customLabel": "Стиль",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Редактор/Редкатор.md",
+          "customLabel": "Редкатор",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Готовое/Глава 1 - неред..md",
+          "customLabel": "Глава 1 - неред.",
+          "enabled": false,
+          "position": 3,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1770536451200,
+      "number": 10,
+      "name": "УСЯ - сценарист",
+      "notes": [
+        {
+          "path": "Уся/Сценарист/Роль.md",
+          "customLabel": "Роль",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Сценарист/Фрактальная структура.md",
+          "customLabel": "Фрактальная структура",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Наброски/Концепт.md",
+          "customLabel": "Концепт",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Наброски/Сюжет.md",
+          "customLabel": "Сюжет",
+          "enabled": false,
+          "position": 3,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Сценарист/Сценарии книг/Сюжет 1 книги (попаданец).md",
+          "customLabel": "Сюжет 1 книги (попаданец)",
+          "enabled": true,
+          "position": 4,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Сценарист/Инструкция.md",
+          "customLabel": "Инструкция",
+          "enabled": false,
+          "position": 5,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Сценарист/Инструкция для главы.md",
+          "customLabel": "Инструкция для главы",
+          "enabled": true,
+          "position": 6,
+          "selectedReference": false
+        }
+      ]
+    },
+    {
+      "id": 1770605232190,
+      "number": 11,
+      "name": "УСЯ - Наброски",
+      "notes": [
+        {
+          "path": "Уся/Наброски/Роль.md",
+          "customLabel": "Роль",
+          "enabled": true,
+          "position": 0,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Наброски/Сюжет.md",
+          "customLabel": "Сюжет",
+          "enabled": true,
+          "position": 1,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Сценарист/Фрактальная структура.md",
+          "customLabel": "Фрактальная структура",
+          "enabled": true,
+          "position": 2,
+          "selectedReference": false
+        },
+        {
+          "path": "Уся/Наброски/Инструкция.md",
+          "customLabel": "Инструкция",
+          "enabled": true,
+          "position": 3,
+          "selectedReference": false
+        }
+      ]
     }
   ],
-  "activeReferenceSpaceId": 1755101190096,
+  "activeReferenceSpaceId": 1770518199860,
   "viewActiveSpaces": {
     "Апдейт/Инструкции/Инструкция пересказ.md": 1762482807008
   },
   "viewActiveModels": {
-    "Мертвяк/Главы (new)/Книга 2/Глава 1 черновик.md": "Gemini 2.5 Pro"
+    "Уся/Готовое/Редакторская.md": "Claude Sonnet 4.5 (до 30к слов)"
   },
   "viewActiveToolCategories": {
-    "Мертвяк/Главы (new)/Книга 2/Глава 1 черновик.md": {
+    "Уся/Готовое/Редакторская.md": {
       "read": false,
       "mutate": false,
       "assistant": false
     }
   },
-  "rememberLastInstruction": false,
+  "rememberLastInstruction": true,
   "lastReplaceInstruction": "",
   "cacheDuration": 0,
   "rememberApiKey": false,
@@ -581,5 +761,15 @@
     "read": false,
     "mutate": false,
     "assistant": false
-  }
+  },
+  "favoriteModels": [
+    "Claude Sonnet 4.5 (до 30к слов)",
+    "Claude Opus 4.6 (до 30к слов)"
+  ],
+  "notificationSettings": {
+    "mode": "off",
+    "scope": "all",
+    "soundDuration": "short"
+  },
+  "streamingThrottleMs": 40
 }

@@ -1,7 +1,7 @@
 {
   "id": "flowwriter-ai",
-  "name": "Flow Writer 3.1.0",
-  "version": "3.1.0",
+  "name": "Flow Writer 3.3.10",
+  "version": "3.3.10",
   "minAppVersion": "0.15.0",
   "description": "Integrates AI for writers into Obsidian.",
   "author": "Lazy Panda",

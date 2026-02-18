@@ -22,11 +22,12 @@
   align-items: center;
   gap: 12px;
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  background: var(--background-secondary);
+  padding: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  background: transparent;
 }
+
 .fw-setting-label {
   flex: 0 0 260px;
   display: flex;
@@ -34,15 +35,18 @@
   align-items: flex-start;
   gap: 2px;
 }
+
 .fw-setting-label-title {
   font-weight: 500;
   line-height: 1.2;
 }
+
 .fw-setting-label-description {
   font-size: 0.95em;
   color: var(--text-muted);
   line-height: 1.2;
 }
+
 .fw-setting-select {
   width: 100%;
   min-width: 180px;
@@ -53,14 +57,15 @@
   box-sizing: border-box;
   outline: none;
   transition: all 0.15s ease;
-  text-align: center; /* Выравниваем текст по центру */
-  
+  text-align: center;
+  /* Выравниваем текст по центру */
+
   /* Создание эффекта вдавленности */
   background-color: var(--background-primary-alt, var(--background-secondary-alt));
   border: 1px solid var(--background-modifier-border-hover, var(--background-modifier-border));
   border-radius: 6px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08), 
-              inset 0 0 2px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08),
+    inset 0 0 2px rgba(0, 0, 0, 0.04);
   padding: 0 12px;
 }
 
@@ -73,7 +78,7 @@
   border-color: var(--interactive-accent);
   background-color: var(--background-primary);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06),
-              0 0 0 2px var(--interactive-accent-hover, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2));
+    0 0 0 2px var(--interactive-accent-hover, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2));
 }
 
 .fw-setting-input.fw-setting-select {
@@ -90,8 +95,8 @@
   background-color: var(--background-primary-alt, var(--background-secondary-alt));
   border: 1px solid var(--background-modifier-border-hover, var(--background-modifier-border));
   border-radius: 6px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08), 
-              inset 0 0 2px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08),
+    inset 0 0 2px rgba(0, 0, 0, 0.04);
   padding: 0 12px;
 }
 
@@ -103,15 +108,17 @@
   border-color: var(--interactive-accent);
   background-color: var(--background-primary);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06),
-              0 0 0 2px var(--interactive-accent-hover, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2));
+    0 0 0 2px var(--interactive-accent-hover, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2));
 }
 
 .fw-setting-control {
   flex: 1;
   display: flex;
   align-items: center;
-  position: relative; /* Для абсолютного позиционирования контейнера засечек */
-  padding-bottom: 0px; /* Убираем отступ, т.к. засечки теперь на уровне слайдера */
+  position: relative;
+  /* Для абсолютного позиционирования контейнера засечек */
+  padding-bottom: 0px;
+  /* Убираем отступ, т.к. засечки теперь на уровне слайдера */
 }
 
 /* Более специфичные стили для контейнера элементов управления */
@@ -139,7 +146,7 @@
 }
 
 /* Принудительное растягивание выпадающего списка */
-.fw-setting-select, 
+.fw-setting-select,
 select.fw-setting-select,
 .fw-setting-input.fw-setting-select {
   width: 100% !important;
@@ -155,19 +162,28 @@ select.fw-setting-select,
 /* Styles for slider ticks */
 .fw-slider-ticks-container {
   position: absolute;
-  bottom: calc(50% - 3px); /* Центрируем контейнер вертикально */
-  left: 10px;     /* Увеличенный отступ слева для соответствия слайдеру */
-  right: 10px;    /* Увеличенный отступ справа для соответствия слайдеру */
-  height: 6px;    /* Высота области засечек */
-  pointer-events: none; /* Засечки не мешают взаимодействию */
-  z-index: 1;     /* Засечки под ползунком */
-  opacity: 0.7;   /* Увеличиваем непрозрачность для лучшей видимости */
+  bottom: calc(50% - 3px);
+  /* Центрируем контейнер вертикально */
+  left: 10px;
+  /* Увеличенный отступ слева для соответствия слайдеру */
+  right: 10px;
+  /* Увеличенный отступ справа для соответствия слайдеру */
+  height: 6px;
+  /* Высота области засечек */
+  pointer-events: none;
+  /* Засечки не мешают взаимодействию */
+  z-index: 1;
+  /* Засечки под ползунком */
+  opacity: 0.7;
+  /* Увеличиваем непрозрачность для лучшей видимости */
 }
 
 /* Для более точного позиционирования используем стиль для слайдера и margin вместо отступов */
 .fw-setting-slider {
-  width: calc(100% - 20px) !important; /* Устанавливаем явную ширину с учетом отступов */
-  margin: 0 10px !important; /* Центрируем слайдер */
+  width: calc(100% - 20px) !important;
+  /* Устанавливаем явную ширину с учетом отступов */
+  margin: 0 10px !important;
+  /* Центрируем слайдер */
 }
 
 .fw-slider-tick {
@@ -185,20 +201,50 @@ select.fw-setting-select,
 /* Делаем нулевую и конечную засечки немного выше для акцента */
 .fw-slider-tick.tick-val-0,
 .fw-slider-tick.tick-val-35 {
-  height: 6px; /* Более высокие крайние засечки */
-  width: 2px; /* Такая же толщина, как у обычных засечек */
+  height: 6px;
+  /* Более высокие крайние засечки */
+  width: 2px;
+  /* Такая же толщина, как у обычных засечек */
 }
 
 /* Классы для позиционирования засечек для слайдера cacheDuration (0-35, шаг 5) */
 /* Используем новую формулу для более точного позиционирования */
-.fw-slider-tick.tick-val-0   { left: 0; margin-left: -1px; } /* Сдвигаем на половину ширины влево */
-.fw-slider-tick.tick-val-5   { left: calc( (5 / 35) * 100% - 1px); } /* Учитываем ширину засечки */
-.fw-slider-tick.tick-val-10  { left: calc( (10 / 35) * 100% - 1px); }
-.fw-slider-tick.tick-val-15  { left: calc( (15 / 35) * 100% - 1px); }
-.fw-slider-tick.tick-val-20  { left: calc( (20 / 35) * 100% - 1px); }
-.fw-slider-tick.tick-val-25  { left: calc( (25 / 35) * 100% - 1px); }
-.fw-slider-tick.tick-val-30  { left: calc( (30 / 35) * 100% - 1px); }
-.fw-slider-tick.tick-val-35  { left: calc(100% - 1px); } /* Сдвигаем на половину ширины влево */
+.fw-slider-tick.tick-val-0 {
+  left: 0;
+  margin-left: -1px;
+}
+
+/* Сдвигаем на половину ширины влево */
+.fw-slider-tick.tick-val-5 {
+  left: calc((5 / 35) * 100% - 1px);
+}
+
+/* Учитываем ширину засечки */
+.fw-slider-tick.tick-val-10 {
+  left: calc((10 / 35) * 100% - 1px);
+}
+
+.fw-slider-tick.tick-val-15 {
+  left: calc((15 / 35) * 100% - 1px);
+}
+
+.fw-slider-tick.tick-val-20 {
+  left: calc((20 / 35) * 100% - 1px);
+}
+
+.fw-slider-tick.tick-val-25 {
+  left: calc((25 / 35) * 100% - 1px);
+}
+
+.fw-slider-tick.tick-val-30 {
+  left: calc((30 / 35) * 100% - 1px);
+}
+
+.fw-slider-tick.tick-val-35 {
+  left: calc(100% - 1px);
+}
+
+/* Сдвигаем на половину ширины влево */
 
 /* Стили для отключенных настроек кэширования запросов */
 .fw-setting-disabled {
@@ -281,6 +327,7 @@ select.fw-setting-select,
   padding: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
 }
+
 .callout[data-callout="ai-answer"] .callout-title {
   padding: 12px 16px;
   font-weight: 500;
@@ -289,13 +336,16 @@ select.fw-setting-select,
   align-items: center;
   gap: 8px;
 }
+
 .callout[data-callout="ai-answer"] .callout-content {
   padding: 0 16px 16px;
   line-height: 1.5;
 }
+
 .callout[data-callout="ai-answer"] .callout-icon {
   font-size: 1.1em;
 }
+
 .callout[data-callout="ai-answer-accepted"] {
   --callout-color: var(--interactive-accent);
   --callout-icon: pin;
@@ -306,6 +356,7 @@ select.fw-setting-select,
   padding: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
 }
+
 .callout[data-callout="ai-answer-accepted"] .callout-title {
   padding: 12px 16px;
   font-weight: 500;
@@ -314,10 +365,12 @@ select.fw-setting-select,
   align-items: center;
   gap: 8px;
 }
+
 .callout[data-callout="ai-answer-accepted"] .callout-content {
   padding: 0 16px 16px;
   line-height: 1.5;
 }
+
 .callout[data-callout="ai-answer-accepted"] .callout-icon {
   font-size: 1.1em;
 }
@@ -327,32 +380,33 @@ select.fw-setting-select,
    ============================= */
 
 .fw-auth-controls-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-}
-.fw-auth-status-nowrap {
-    white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
 }
 
-.fw-auth-status .fw-setting-label-description { 
-    font-weight: bold;
+.fw-auth-status-nowrap {
+  white-space: nowrap;
+}
+
+.fw-auth-status .fw-setting-label-description {
+  font-weight: bold;
 }
 
 .fw-auth-buttons-control {
-    display: flex;
-    gap: 10px; 
+  display: flex;
+  gap: 10px;
 }
 
 .fw-auth-notice {
-    padding: 10px;
-    background-color: var(--background-secondary-alt);
-    border: 1px solid var(--background-modifier-border);
-    border-radius: var(--radius-m);
-    margin-top: 15px;
-    text-align: center;
-    font-size: var(--font-ui-small);
+  padding: 10px;
+  background-color: var(--background-secondary-alt);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  margin-top: 15px;
+  text-align: center;
+  font-size: var(--font-ui-small);
 }
 
 .fw-ai-config-auth-space {
@@ -385,7 +439,8 @@ select.fw-setting-select,
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 70vh;
+  height: 90vh;
+  /* Increased height by ~30% */
   width: 70vw;
 }
 
@@ -393,7 +448,8 @@ select.fw-setting-select,
   font-size: 1.3em;
   font-weight: 700;
   margin-bottom: 18px;
-  margin-top: 0; /* Было 1em, теперь 0 */
+  margin-top: 0;
+  /* Было 1em, теперь 0 */
   text-align: center;
   flex-shrink: 0;
 }
@@ -427,7 +483,8 @@ select.fw-setting-select,
 .ai-modal-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Изменено с center на space-between */
+  justify-content: space-between;
+  /* Изменено с center на space-between */
   gap: 16px;
   margin-top: 18px;
   width: 100%;
@@ -439,7 +496,8 @@ select.fw-setting-select,
   align-items: center;
   justify-content: center;
   gap: 16px;
-  flex-grow: 1; /* Занимает все доступное пространство */
+  flex-grow: 1;
+  /* Занимает все доступное пространство */
 }
 
 /* Стили для чекбокса и его контейнера */
@@ -447,12 +505,16 @@ select.fw-setting-select,
   display: flex;
   align-items: center;
   font-size: 0.9em;
-  flex-shrink: 0; /* Не сжимается */
-  margin-left: 0; /* Убираем отступ слева, теперь он не нужен */
+  flex-shrink: 0;
+  /* Не сжимается */
+  margin-left: 0;
+  /* Убираем отступ слева, теперь он не нужен */
 }
 
 /* Удаляем старые контейнеры */
-.ai-modal-actions-container { display: none !important; }
+.ai-modal-actions-container {
+  display: none !important;
+}
 
 /* Стили для выделенного текста */
 .ai-modal-selected {
@@ -461,14 +523,72 @@ select.fw-setting-select,
   color: var(--text-normal);
   border-radius: 6px;
   padding: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
+  /* Removed margin for resizer */
   font-family: inherit;
   font-size: 1em;
   white-space: pre-wrap;
   word-break: break-word;
   border: 1px solid var(--background-modifier-border);
   overflow-y: auto;
-  max-height: 150px;
+  /* max-height: 150px; Removed fixed max-height */
+  flex-shrink: 0;
+  /* Allow resizing */
+}
+
+.ai-modal-resizer {
+  height: 10px;
+  width: 100%;
+  cursor: row-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.ai-modal-resizer:hover {
+  background-color: var(--background-modifier-hover);
+  border-radius: 4px;
+}
+
+.ai-modal-resizer::after {
+  content: '';
+  width: 40px;
+  height: 4px;
+  background-color: var(--background-modifier-border);
+  border-radius: 2px;
+}
+
+.ai-modal-label-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.ai-modal-prompts-toggle {
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.ai-modal-prompts-toggle:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.ai-modal-prompts-toggle.is-active {
+  color: var(--interactive-accent);
+  background-color: hsla(var(--interactive-accent-hsl), 0.1);
 }
 
 /* Стиль для меток полей */
@@ -483,8 +603,10 @@ select.fw-setting-select,
   display: flex;
   align-items: center;
   font-size: 0.9em;
-  flex-shrink: 0; /* Не сжимается */
-  margin-left: 0; /* Убираем отступ слева, теперь он не нужен */
+  flex-shrink: 0;
+  /* Не сжимается */
+  margin-left: 0;
+  /* Убираем отступ слева, теперь он не нужен */
 }
 
 .ai-modal-checkbox {
@@ -553,32 +675,39 @@ select.fw-setting-select,
 
 /* Радужная последовательность градиентов - яркая современная палитра */
 .ai-modal-prompt-btn:nth-child(7n+1) {
-  background: linear-gradient(135deg, #FF6B6B 0%, #FF5252 100%); /* красный */
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF5252 100%);
+  /* красный */
 }
 
 .ai-modal-prompt-btn:nth-child(7n+2) {
-  background: linear-gradient(135deg, #FF9F43 0%, #FF6348 100%); /* оранжевый */
+  background: linear-gradient(135deg, #FF9F43 0%, #FF6348 100%);
+  /* оранжевый */
 }
 
 .ai-modal-prompt-btn:nth-child(7n+3) {
-  background: linear-gradient(135deg, #FFD93D 0%, #FFC048 100%); /* желтый */
+  background: linear-gradient(135deg, #FFD93D 0%, #FFC048 100%);
+  /* желтый */
   color: #333;
 }
 
 .ai-modal-prompt-btn:nth-child(7n+4) {
-  background: linear-gradient(135deg, #6BCF7F 0%, #4CAF50 100%); /* зеленый */
+  background: linear-gradient(135deg, #6BCF7F 0%, #4CAF50 100%);
+  /* зеленый */
 }
 
 .ai-modal-prompt-btn:nth-child(7n+5) {
-  background: linear-gradient(135deg, #4ECDC4 0%, #00D9FF 100%); /* голубой */
+  background: linear-gradient(135deg, #4ECDC4 0%, #00D9FF 100%);
+  /* голубой */
 }
 
 .ai-modal-prompt-btn:nth-child(7n+6) {
-  background: linear-gradient(135deg, #748FFC 0%, #5E72E4 100%); /* синий */
+  background: linear-gradient(135deg, #748FFC 0%, #5E72E4 100%);
+  /* синий */
 }
 
 .ai-modal-prompt-btn:nth-child(7n) {
-  background: linear-gradient(135deg, #C471ED 0%, #A55EEA 100%); /* фиолетовый */
+  background: linear-gradient(135deg, #C471ED 0%, #A55EEA 100%);
+  /* фиолетовый */
 }
 
 /* Кнопка добавления нового промпта - нейтральный стиль */
@@ -664,9 +793,10 @@ select.ai-modal-input {
 
 /* Стили других модальных окон, если нужны
 Например, если поля ввода в модальных окнах требуют специфичной ширины */
-.modal-content .fw-input { /* Предполагая, что инпуты в модалках имеют класс fw-input */
-    width: 100%;
-    margin-bottom: 10px;
+.modal-content .fw-input {
+  /* Предполагая, что инпуты в модалках имеют класс fw-input */
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 /* =============================
@@ -677,24 +807,29 @@ select.ai-modal-input {
   align-items: center;
   gap: 4px;
 }
+
 .ai-loading-action svg {
   animation: ai-spin 1s linear infinite;
 }
+
 .ai-loading-action.is-sending {
   display: inline-flex;
   color: var(--interactive-accent);
 }
+
 @keyframes ai-spin {
   100% {
     transform: rotate(360deg);
   }
 }
+
 .ai-loading-text {
   white-space: nowrap;
   overflow: visible;
   min-width: max-content;
   display: inline-block;
 }
+
 .view-action.ai-loading-action {
   flex-shrink: 0;
   z-index: 2;
@@ -705,14 +840,16 @@ select.ai-modal-input {
    Стили для кнопок и контейнера действий в хедере заметки
    ============================= */
 
-   .fw-plugin-actions {
+.fw-plugin-actions {
   display: flex;
   align-items: center;
   gap: var(--size-4-2);
 }
-.view-header > .view-actions {
+
+.view-header>.view-actions {
   margin-left: auto;
 }
+
 /* Стили наведения для кнопок хедера заметок */
 .fw-plugin-actions .ai-send-action:hover svg,
 .fw-plugin-actions .ai-accept-action:hover svg,
@@ -739,9 +876,17 @@ select.ai-modal-input {
 
 /* Анимация подсветки поля API-ключа */
 @keyframes fw-highlight-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(var(--interactive-accent-rgb), 0.7); }
-  70% { box-shadow: 0 0 0 6px rgba(var(--interactive-accent-rgb), 0); }
-  100% { box-shadow: 0 0 0 0 rgba(var(--interactive-accent-rgb), 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--interactive-accent-rgb), 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 6px rgba(var(--interactive-accent-rgb), 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--interactive-accent-rgb), 0);
+  }
 }
 
 .fw-highlight-field {
@@ -806,28 +951,28 @@ select.ai-modal-input {
   min-width: 140px;
   padding: 10px 24px;
   height: 32px;
-  
+
   /* Визуальное оформление */
   background-color: var(--interactive-accent) !important;
   color: var(--text-on-accent) !important;
   border: none;
   border-radius: 8px;
-  
+
   /* Типографика */
   font-size: 14px;
   font-weight: 600;
   text-align: center;
-  
+
   /* Интерактивность */
   cursor: pointer;
   transition: all 0.15s ease;
-  
+
   /* Flexbox для центрирования содержимого */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  
+
   /* Убираем стандартные стили */
   outline: none;
   box-shadow: none;
@@ -841,8 +986,8 @@ select.ai-modal-input {
 
 /* Состояние при фокусе (для поддержки Enter) */
 .fw-button:focus {
-  box-shadow: 0 0 0 2px var(--background-primary), 
-              0 0 0 4px var(--interactive-accent);
+  box-shadow: 0 0 0 2px var(--background-primary),
+    0 0 0 4px var(--interactive-accent);
 }
 
 /* Состояние при нажатии */
@@ -916,33 +1061,216 @@ select.ai-modal-input {
 
 /* Панель промптов - вторая строка под хедером */
 .fw-header-prompts-panel {
-    display: flex;
-    align-items: center;
-    padding: 4px 16px; /* Увеличиваем вертикальные отступы для лучшего размещения кнопок */
-    background: transparent; /* Используем прозрачный фон, чтобы наследовать цвет контейнера */
-    border-bottom: 1px solid var(--background-modifier-border);
-    width: 100%;
-    box-sizing: border-box;
-    min-height: auto; /* Позволяем панели адаптироваться под содержимое */
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  /* Увеличиваем вертикальные отступы для лучшего размещения кнопок */
+  background: transparent;
+  /* Используем прозрачный фон, чтобы наследовать цвет контейнера */
+  border-bottom: 1px solid var(--background-modifier-border);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: auto;
+  /* Позволяем панели адаптироваться под содержимое */
 }
 
 /* Адаптация контейнера промптов для панели в хедере */
 .fw-header-prompts-panel .ai-modal-prompts-container {
-    max-height: none;
-    overflow-y: visible;
-    margin: 0;
-    width: 100%;
+  max-height: none;
+  overflow-y: visible;
+  margin: 0;
+  width: 100%;
 }
 
 /* Адаптация кнопок промптов в хедере - убеждаемся что они помещаются */
 .fw-header-prompts-panel .ai-modal-prompt-btn,
 .fw-header-prompts-panel .ai-modal-prompt-btn-add {
-    height: 28px; /* Фиксированная высота для кнопок в хедере */
-    flex-shrink: 0; /* Не позволяем кнопкам сжиматься */
+  height: 28px;
+  /* Фиксированная высота для кнопок в хедере */
+  flex-shrink: 0;
+  /* Не позволяем кнопкам сжиматься */
 }
 
 /* Сообщение об ошибке в хедере */
 .fw-header-prompts-error {
-    color: var(--text-error);
-    font-size: 13px;
+  color: var(--text-error);
+  font-size: 13px;
+}
+
+/* =============================
+   Стили для уведомлений (Notification)
+   ============================= */
+
+/* Кнопка в status bar */
+.fw-notification-status-bar {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+}
+
+.fw-notification-status-bar:hover {
+  color: var(--interactive-accent);
+}
+
+.fw-notification-status-bar svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Выпадающее меню уведомлений */
+.fw-notification-dropdown {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.fw-notification-dropdown-header {
+  padding: 12px 16px 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-normal);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.fw-notification-section {
+  padding: 8px 0;
+}
+
+.fw-notification-section-label {
+  padding: 4px 16px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fw-notification-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.fw-notification-option:hover {
+  background-color: var(--background-secondary);
+}
+
+.fw-notification-option.is-active {
+  background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15);
+}
+
+.fw-notification-option.is-active .fw-notification-option-icon {
+  color: var(--interactive-accent);
+}
+
+.fw-notification-option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  color: var(--text-muted);
+}
+
+.fw-notification-option-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.fw-notification-option-label {
+  font-size: 13px;
+  color: var(--text-normal);
+}
+
+.fw-notification-divider {
+  height: 1px;
+  background-color: var(--background-modifier-border);
+  margin: 4px 0;
+}
+
+/* Секция выбора длительности звука */
+.fw-notification-sound-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  gap: 12px;
+}
+
+.fw-notification-sound-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.fw-notification-sound-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.fw-notification-sound-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--background-secondary);
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.fw-notification-sound-btn:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.fw-notification-sound-btn.is-active {
+  background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
+  border-color: var(--interactive-accent);
+}
+
+.fw-notification-sound-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.fw-notification-sound-bar {
+  width: 4px;
+  border-radius: 1px;
+  background-color: var(--text-faint);
+  transition: background-color 0.15s ease;
+}
+
+.fw-notification-sound-bar:nth-child(1) {
+  height: 6px;
+}
+
+.fw-notification-sound-bar:nth-child(2) {
+  height: 10px;
+}
+
+.fw-notification-sound-bar:nth-child(3) {
+  height: 14px;
+}
+
+.fw-notification-sound-bar.is-filled {
+  background-color: var(--text-muted);
+}
+
+.fw-notification-sound-btn.is-active .fw-notification-sound-bar.is-filled {
+  background-color: var(--interactive-accent);
 }
